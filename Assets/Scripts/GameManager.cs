@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
 		playerInput = new PlayerInputHandler(player, player.transform.position, camera);
-        enemyAI = new EnemyAIHandler(enemy,player,enemy.transform.position);
+        enemyAI = new EnemyAIHandler(enemy,player,enemy.transform.position, powerupOptions);
 		boostSpawner = new BoostSpawner(boostSpawns, powerupOptions);
     }
 

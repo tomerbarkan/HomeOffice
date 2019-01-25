@@ -7,18 +7,22 @@ public class EnemyAIHandler
     protected Character enemyCharacter;
     protected Character playerCharacter;
     protected Vector3 position;
+    protected PowerupCollectible[] powerupOptions;
 
     float hitChances = 0.5f;
-    
 
-    public EnemyAIHandler(Character enemy, Character player, Vector3 position)
+    float timeUntilNextBoost;
+
+    public EnemyAIHandler(Character enemy, Character player, Vector3 position, PowerupCollectible[] powerupOptions)
     {
         this.enemyCharacter = enemy;
         this.playerCharacter = player;
         this.position = position;
-       
+        this.powerupOptions = powerupOptions;
+        timeUntilNextBoost = GetTimeUntilNextBoost();
     }
 
+    
     public void Think()
     {
         if (enemyCharacter.cooldownRemaining <= 0)
@@ -35,6 +39,19 @@ public class EnemyAIHandler
             enemyCharacter.Throw(calculateBestThrowSpeed(enemyCharacter.throwableSpawnPoint.position,
                 playerCharacter.transform.position + positionModifier, 2 + timeModifier));
         }
+
+        timeUntilNextBoost -= Time.deltaTime;
+        if(timeUntilNextBoost <= 0)
+        {
+            PowerupCollectible powerup = powerupOptions[Random.Range(0, powerupOptions.Length)];
+            powerup.powerup.ActivatePowerup(enemyCharacter);
+            timeUntilNextBoost = GetTimeUntilNextBoost();
+        }
+    }
+
+    float GetTimeUntilNextBoost()
+    {
+        return Random.Range(3f, 7f);
     }
 
      Vector3 calculateBestThrowSpeed(Vector3 origin, Vector3 target, float timeToTarget)

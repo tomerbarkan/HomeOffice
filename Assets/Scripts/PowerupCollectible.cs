@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class PowerupCollectible : MonoBehaviour, IHitable
 {
-	[SerializeField] protected Powerup powerup;
+	[SerializeField] public Powerup powerup;
 
     public void Hit(Throwable throwable) {
 		throwable.thrower.AddPowerup(powerup);
