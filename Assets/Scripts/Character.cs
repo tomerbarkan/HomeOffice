@@ -52,8 +52,7 @@ public class Character : MonoBehaviour, IHitable {
 			cooldownMeter.Set(1f - Mathf.Clamp(cooldownRemaining, 0, startCooldown) / startCooldown);
 		}
 
-        SetAnger(anger - (angeyDecayPerSecond * Time.deltaTime));
-
+		Heal(angeyDecayPerSecond * Time.deltaTime);
        
         if(onFire)
         {
@@ -75,9 +74,10 @@ public class Character : MonoBehaviour, IHitable {
 		Destroy(throwable.gameObject);
     }
 
-	public void Heal(int amount) {
-        if(canHeal)
-	    	SetAnger(anger - amount);
+	public void Heal(float amount) {
+		if (canHeal) {
+			SetAnger(anger - amount);
+		}
 	}
 
     public void Throw(Vector2 force) {

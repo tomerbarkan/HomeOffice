@@ -122,5 +122,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwableRigidbody: {fileID: 4543379256191809368}
-  damage: 1
+  damage: 10
   thrower: {fileID: 0}

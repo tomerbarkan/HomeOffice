@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwableRigidbody: {fileID: 2717000340235448133}
-  damage: 2
+  damage: 10
   thrower: {fileID: 0}
   additionalThrowablePrefab: {fileID: 2753836684006144929}
   additioalThrowables: 2
