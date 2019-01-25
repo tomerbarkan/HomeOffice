@@ -10,7 +10,7 @@ public abstract class Throwable : MonoBehaviour
 
 	public Character thrower;
 
-    public void Throw(Vector2 force, Character thrower) {
+    public virtual void Throw(Vector2 force, Character thrower) {
 		throwableRigidbody.velocity = force;
 		this.thrower = thrower;
     }
