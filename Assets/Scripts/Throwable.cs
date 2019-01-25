@@ -19,10 +19,15 @@ public abstract class Throwable : MonoBehaviour
         
     }
 
-    public void Throw(float angle, float force)
+    //public void Throw(float angle, float force)
+    //{
+    //    throwableRigidbody.AddForce(0, 0, force);
+    //}
+
+
+    public void Throw(Vector3 force)
     {
 
     }
-
     
 }

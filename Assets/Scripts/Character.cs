@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class Character : MonoBehaviour, IHitable
 {
     public UnityEvent onHit { get; protected set; }
@@ -38,8 +39,17 @@ public class Character : MonoBehaviour, IHitable
 
     public void Throw(float angle, float force)
     {
+        //Throwable spawnedThrowable = Throwable.Instantiate<Throwable>(currentThrowable);
+        //spawnedThrowable.transform.position = throwableSpawnPoint.position;
+        //spawnedThrowable.transform.eulerAngles = new Vector3(angle, spawnedThrowable.transform.eulerAngles.y, spawnedThrowable.transform.eulerAngles.z);
+        //spawnedThrowable.Throw(angle, force);
+    }
+
+    public void Throw(Vector3 force)
+    {
         Throwable spawnedThrowable = Throwable.Instantiate<Throwable>(currentThrowable);
         spawnedThrowable.transform.position = throwableSpawnPoint.position;
-        spawnedThrowable.Throw(angle, force);
+        //spawnedThrowable.transform.eulerAngles = new Vector3(angle, spawnedThrowable.transform.eulerAngles.y, spawnedThrowable.transform.eulerAngles.z);
+        spawnedThrowable.Throw(force);
     }
 }
