@@ -8,7 +8,7 @@ public class PowerupCollectible : MonoBehaviour, IHitable
 	[SerializeField] protected Powerup powerup;
 
     public void Hit(Throwable throwable) {
-		powerup.ActivatePowerup(throwable.thrower);
+		throwable.thrower.AddPowerup(powerup);
 		Destroy(gameObject);
     }
 }

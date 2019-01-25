@@ -16,19 +16,15 @@ public class AbilityIcon : MonoBehaviour
     {
         this.button.image.sprite = sprite;
 
-        if (sprite == null)
-            icon.enabled = false;
-        else
-            icon.enabled = true;
+		if (sprite == null) {
+			icon.gameObject.SetActive(false);
+		} else {
+			icon.gameObject.SetActive(true);
+		}
 
-        if (action == null)
-            button.interactable = false;
-        else
-            button.interactable = true;
-    }
-
-    public void InvokeAction()
-    {
-        actionToInvoke.Invoke();
+		button.onClick.RemoveAllListeners();
+		if (action != null) {
+			button.onClick.AddListener(action);
+		}
     }
 }

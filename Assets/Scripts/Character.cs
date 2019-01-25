@@ -4,17 +4,11 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public class Character : MonoBehaviour, IHitable
-{
-	public class PowerupButton : MonoBehaviour {
-		public void Set(Sprite sprite, UnityAction action) {
-
-		}
-	}
+public class Character : MonoBehaviour, IHitable {
 
     [SerializeField] protected Throwable defaultthrowable;
     [SerializeField] protected Transform throwableSpawnPoint;
-	[SerializeField] protected PowerupButton[] powerupButtons;
+	[SerializeField] protected AbilityIcon[] powerupButtons;
 	[SerializeField] protected int maxAnger;
 	[SerializeField] protected float cooldown;
 
@@ -61,14 +55,25 @@ public class Character : MonoBehaviour, IHitable
 
 	public void AddPowerup(Powerup powerup) {
 		powerUps.Add(powerup);
-		if (powerUps.Count > ConfigManager.instance.maxPowerups) {
+		if (powerUps.Count > powerupButtons.Length) {
 			powerUps.RemoveAt(0);
 		}
 
+		UpdatePowerupIcons();
 		// TODO: update abilities UI
 	}
 
 	public void SetThrowable(Throwable throwable) {
 		this.currentThrowable = throwable ?? defaultthrowable;
+	}
+
+
+
+
+
+	protected void UpdatePowerupIcons() {
+		for (int i = 0; i < powerupButtons.Length; i++) {
+			powerupButtons[i].Set(powerUps[i]?.Sprite, () => powerUps[i]?.ActivatePowerup(this));
+		}
 	}
 }
