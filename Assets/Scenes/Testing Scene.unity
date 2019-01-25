@@ -391,6 +391,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375c95d66b47f104dae5657378aadb9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &710187694
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4622500456773154408, guid: 4d1c13784b864b6499a1894357b8944a,
+        type: 3}
+      propertyPath: m_Name
+      value: PowerupCollectible (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622500456773154415, guid: 4d1c13784b864b6499a1894357b8944a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622500456773154415, guid: 4d1c13784b864b6499a1894357b8944a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622500456773154415, guid: 4d1c13784b864b6499a1894357b8944a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622500456773154415, guid: 4d1c13784b864b6499a1894357b8944a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622500456773154415, guid: 4d1c13784b864b6499a1894357b8944a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622500456773154415, guid: 4d1c13784b864b6499a1894357b8944a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622500456773154415, guid: 4d1c13784b864b6499a1894357b8944a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622500456773154415, guid: 4d1c13784b864b6499a1894357b8944a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622500456773154415, guid: 4d1c13784b864b6499a1894357b8944a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622500456773154415, guid: 4d1c13784b864b6499a1894357b8944a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622500456773154415, guid: 4d1c13784b864b6499a1894357b8944a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580309492632734855, guid: 4d1c13784b864b6499a1894357b8944a,
+        type: 3}
+      propertyPath: powerup
+      value: 
+      objectReference: {fileID: 1131893344, guid: 117f02fe46535714296ebc00338eae7f,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d1c13784b864b6499a1894357b8944a, type: 3}
 --- !u!114 &734920476 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7331077765697476109, guid: 34466e3bee3947e41b31695fb49887a0,
@@ -825,6 +900,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: maxAnger
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: angerMeter
+      value: 
+      objectReference: {fileID: 2062169066}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: cooldown
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: layer.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 4407603097667825462, guid: f1c38a869dba0644ea04e917c595ee79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -879,22 +970,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: maxAnger
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: angerMeter
-      value: 
-      objectReference: {fileID: 2062169066}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: cooldown
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: layer.m_Bits
-      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 1990961755, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1007,6 +1082,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Office Player
       objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: powerupButtons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: maxAnger
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: powerupButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 2060177606}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: powerupButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 420117186}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: powerupButtons.Array.data[2]
+      value: 
+      objectReference: {fileID: 293410253}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: cooldownMeter
+      value: 
+      objectReference: {fileID: 1117380152}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: cooldown
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: angerMeter
+      value: 
+      objectReference: {fileID: 734920476}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: layer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 4407603097667825462, guid: f1c38a869dba0644ea04e917c595ee79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1061,42 +1172,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: powerupButtons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: maxAnger
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: powerupButtons.Array.data[0]
-      value: 
-      objectReference: {fileID: 2060177606}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: powerupButtons.Array.data[1]
-      value: 
-      objectReference: {fileID: 420117186}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: powerupButtons.Array.data[2]
-      value: 
-      objectReference: {fileID: 293410253}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: cooldownMeter
-      value: 
-      objectReference: {fileID: 1117380152}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: cooldown
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: angerMeter
-      value: 
-      objectReference: {fileID: 734920476}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: layer.m_Bits
-      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 1990961755, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
       propertyPath: m_LocalPosition.z
