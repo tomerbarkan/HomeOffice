@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 
+   
 	public Character player;
     public Character enemy;
 	public new Camera camera;
@@ -16,8 +17,11 @@ public class GameManager : MonoBehaviour
     public EnemyAIHandler enemyAI;
 	public BoostSpawner boostSpawner;
 
+    public AudioManager audioManager;
+
 	public ConfigManager[] nextConfigs;
 
+    
 	protected int nextConfig = 0;
 
 
@@ -42,6 +46,7 @@ public class GameManager : MonoBehaviour
 		AdvanceStages();
     }
 
+    [ContextMenu("Activate Next Stage")]
 	protected void AdvanceStages() {
 		if (nextConfig >= nextConfigs.Length) {
 			return;
@@ -50,7 +55,12 @@ public class GameManager : MonoBehaviour
 		ConfigManager.instance.stageTime -= Time.deltaTime;
 		if (ConfigManager.instance.stageTime <= 0) {
 			Destroy(ConfigManager.instance.gameObject);
-			GameObject.Instantiate(nextConfigs[nextConfig++]);
-		}
+
+            audioManager.ActivateNextPhase(nextConfig);
+            GameObject.Instantiate(nextConfigs[nextConfig++]);
+           
+        }
 	}
+
+    
 }

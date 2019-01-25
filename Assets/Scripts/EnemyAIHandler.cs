@@ -35,7 +35,7 @@ public class EnemyAIHandler
                 timeModifier = Random.Range(-0.5f, 1f);
             }
             enemyCharacter.Throw(calculateBestThrowSpeed(enemyCharacter.throwableSpawnPoint.position,
-                playerCharacter.transform.position + positionModifier, 2 + timeModifier));
+                playerCharacter.aimToPoint.position + positionModifier, 2 + timeModifier));
         }
 
         timeUntilNextBoost -= Time.deltaTime;

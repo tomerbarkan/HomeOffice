@@ -12,10 +12,17 @@ public abstract class Throwable : MonoBehaviour
 
     public virtual void Throw(Vector2 force, Character thrower) {
         SetVelocity(force, thrower);
-		StartCoroutine(DestroyAfterTime());
+        transform.rotation = Random.rotation;
+        throwableRigidbody.AddTorque(transform.right * 3000);
+        StartCoroutine(DestroyAfterTime());
     }
 
-	public virtual void OnTriggerEnter(Collider other) {
+    protected virtual void Update()
+    {
+        //throwableRigidbody.AddTorque(transform.right * 3);
+    }
+
+    public virtual void OnTriggerEnter(Collider other) {
 		IHitable hittable = other.GetComponent<IHitable>();
 		if (hittable != null && (object)hittable != thrower) {
 			hittable.Hit(this);

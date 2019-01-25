@@ -8,6 +8,8 @@ public class Character : MonoBehaviour, IHitable {
 
     public Transform throwableSpawnPoint;
     public Transform fanSpawnPoint;
+    public Transform bossSpawnPoint;
+    public Transform aimToPoint;
 
     public float cooldownRemaining;
 
@@ -23,6 +25,7 @@ public class Character : MonoBehaviour, IHitable {
 	[SerializeField] protected int maxAnger;
 
     [SerializeField] protected AudioSource fireScreamAudioSource;
+    [SerializeField] protected Animator animator;
     [SerializeField] protected float additionalCooldown;
 
 
@@ -96,6 +99,8 @@ public class Character : MonoBehaviour, IHitable {
         spawnedThrowable.Throw(force, this);
 		startCooldown = ConfigManager.instance.cooldown + additionalCooldown;
 		cooldownRemaining = startCooldown;
+
+        animator.SetTrigger("Throw");
     }
 
 	public void AddPowerup(Powerup powerup) {
