@@ -14,18 +14,40 @@ public class GameManager : MonoBehaviour
     public EnemyAIHandler enemyAI;
 	public BoostSpawner boostSpawner;
 
-    // Start is called before the first frame update
-    void Start() {
+	public ConfigManager[] nextConfigs;
+
+	protected int nextConfig = 0;
+
+
+	private void Awake() {
+		GameObject.Instantiate(nextConfigs[nextConfig++]);
+	}
+
+	// Start is called before the first frame update
+	private void Start() {
 		playerInput = new PlayerInputHandler(player, player.transform.position, camera);
         enemyAI = new EnemyAIHandler(enemy,player,enemy.transform.position, powerupOptions);
 		boostSpawner = new BoostSpawner(boostSpawns, powerupOptions);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
 		playerInput.HandleInput();
         enemyAI.Think();
 		boostSpawner.Simulate();
+		AdvanceStages();
     }
+
+	protected void AdvanceStages() {
+		if (nextConfig >= nextConfigs.Length) {
+			return;
+		}
+
+		ConfigManager.instance.stageTime -= Time.deltaTime;
+		if (ConfigManager.instance.stageTime <= 0) {
+			Destroy(ConfigManager.instance.gameObject);
+			GameObject.Instantiate(nextConfigs[nextConfig++]);
+		}
+	}
 }

@@ -8,7 +8,7 @@ public class BoostSpawner
 	protected PowerupCollectible[] spawns;
 	protected PowerupCollectible[] powerupOptions;
 
-	protected float timePassed = 0;
+	protected float nextBoost = 0;
 
     public BoostSpawner(Transform spawnsParent, PowerupCollectible[] powerupOptions) {
 		this.spawnPositions = new Transform[spawnsParent.childCount];
@@ -21,11 +21,11 @@ public class BoostSpawner
     }
 
 	public void Simulate() {
-		if (timePassed >= ConfigManager.instance.boostRate) {
-			timePassed = 0;
+		if (nextBoost <= 0) {
+			nextBoost = Random.Range(ConfigManager.instance.boostRateMin, ConfigManager.instance.boostRateMax);
 			SpawnBoost();
 		}
-		timePassed += Time.deltaTime;
+		nextBoost -= Time.deltaTime;
 	}
 
 	public void SpawnBoost() {

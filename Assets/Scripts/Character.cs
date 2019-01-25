@@ -19,9 +19,9 @@ public class Character : MonoBehaviour, IHitable {
 
     [SerializeField] protected float angeyDecayPerSecond;
 	[SerializeField] protected int maxAnger;
-	[SerializeField] protected float cooldown;
 
     [SerializeField] protected AudioSource fireScreamAudioSource;
+    [SerializeField] protected float additionalCooldown;
 
 
 	public Throwable ActiveThrowable { get { return currentThrowable; } }
@@ -40,10 +40,13 @@ public class Character : MonoBehaviour, IHitable {
 	public void Awake() {
 		powerUps = new List<Powerup>();
 		currentThrowable = defaultthrowable;
+	}
+
+	public void Start() {
 		anger = 0;
 		cooldownRemaining = 0;
-		startCooldown = cooldown;
-		SetAnger(0);
+		startCooldown = ConfigManager.instance.cooldown + additionalCooldown;
+		SetAnger(0);		
 	}
 
 	public void Update() {
@@ -89,8 +92,8 @@ public class Character : MonoBehaviour, IHitable {
         spawnedThrowable.transform.position = throwableSpawnPoint.position;
 		spawnedThrowable.transform.forward = force;
         spawnedThrowable.Throw(force, this);
-		cooldownRemaining = cooldown;
-		startCooldown = cooldown;
+		startCooldown = ConfigManager.instance.cooldown + additionalCooldown;
+		cooldownRemaining = startCooldown;
     }
 
 	public void AddPowerup(Powerup powerup) {

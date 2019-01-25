@@ -592,7 +592,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1048343857}
   - component: {fileID: 1048343858}
-  - component: {fileID: 1048343859}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -634,23 +633,10 @@ MonoBehaviour:
   - {fileID: 7941030362117840912, guid: 68bcefa3cad265647a862905255e55a9, type: 3}
   - {fileID: 5142489360965837173, guid: 54fc538f6b820604f82786a643c4ce07, type: 3}
   - {fileID: 8661232094519930084, guid: 7f5ad70950e58cd4e8b06f60649fb5a0, type: 3}
---- !u!114 &1048343859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1048343856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e8043cd97a58924caf26ac3eb1a1305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxThrowSpeed: 15
-  boostRate: 7
-  enemyHitChance: 0.6
-  enemyBoostMin: 5
-  enemyBoostMax: 14
+  nextConfigs:
+  - {fileID: 2443517964875955781, guid: 44c5f6da857f3e6459e18c5c19836adc, type: 3}
+  - {fileID: 779665951855210093, guid: 92b8653d49a13534c98ff7cee0f5efa5, type: 3}
+  - {fileID: 4568384748467527712, guid: 5aa7e05da680c7c4b96d23c70c66810e, type: 3}
 --- !u!114 &1117380152 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 642760580515029289, guid: 34466e3bee3947e41b31695fb49887a0,
@@ -766,6 +752,10 @@ PrefabInstance:
     - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
       propertyPath: layer.m_Bits
       value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: additionalCooldown
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4407603097667825462, guid: f1c38a869dba0644ea04e917c595ee79,
         type: 3}
