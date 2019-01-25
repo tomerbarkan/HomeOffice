@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990961754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.36, y: 4.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4407603097667825462}
@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4407603097667825462}
   - component: {fileID: 239023433}
+  - component: {fileID: 686334817518742323}
   m_Layer: 0
   m_Name: Office Player
   m_TagString: Untagged
@@ -55,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4407603097667825463}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.64, y: -2.7, z: 1.2641492}
+  m_LocalPosition: {x: 11.64, y: 0, z: 1.2641492}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4407603098084988490}
@@ -75,9 +76,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be2f5129e3b07e48aecc64ebd6e7650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentThrowable: {fileID: 1739222235843249275, guid: 28cb074efc08a7f41b301a56707c0e7d,
+  defaultthrowable: {fileID: 3111646383384024427, guid: 39363c7b34a2c4d41b0487549abdabc4,
     type: 3}
   throwableSpawnPoint: {fileID: 1990961755}
+  powerupButtons: []
+--- !u!65 &686334817518742323
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4407603097667825463}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 2.5, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4407603098084988491
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +104,6 @@ GameObject:
   - component: {fileID: 4407603098084988490}
   - component: {fileID: 4407603098084988487}
   - component: {fileID: 4407603098084988488}
-  - component: {fileID: 4407603098084988489}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -105,8 +119,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4407603098084988491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.59, z: 0}
-  m_LocalScale: {x: 1.6984, y: 2.7963, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4407603097667825462}
   m_RootOrder: 0
@@ -156,16 +170,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4407603098084988489
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4407603098084988491}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

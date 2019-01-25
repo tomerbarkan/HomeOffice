@@ -5,11 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Throwable : MonoBehaviour
 {
-    [SerializeField]
-    protected Rigidbody throwableRigidbody;
+    [SerializeField] protected Rigidbody throwableRigidbody;
+	public Character thrower;
 
-    public void Throw(Vector2 force) {
+    public void Throw(Vector2 force, Character thrower) {
 		throwableRigidbody.velocity = force;
+		this.thrower = thrower;
     }
-    
+
+	public void OnTriggerEnter(Collider other) {
+		IHitable hittable = other.GetComponent<IHitable>();
+		if (hittable != null && (object)hittable != thrower) {
+			hittable.Hit(this);
+		}
+	}
 }

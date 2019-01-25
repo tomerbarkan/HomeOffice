@@ -5,7 +5,9 @@ using UnityEngine.Events;
 
 public class PowerupCollectible : MonoBehaviour, IHitable
 {
-    public void Hit(Character thrower) {
+	protected Powerup powerup;
+
+    public void Hit(Throwable throwable) {
 
     }
 }

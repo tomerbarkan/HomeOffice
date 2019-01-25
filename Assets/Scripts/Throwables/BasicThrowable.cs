@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicThrowable : Throwable
-{
+public class BasicThrowable : Throwable {
 
 }

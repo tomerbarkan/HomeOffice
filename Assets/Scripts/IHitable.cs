@@ -4,5 +4,5 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public interface IHitable {
-    void Hit(Character thrower);
+    void Hit(Throwable throwable);
 }
