@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 
 public class Character : MonoBehaviour, IHitable {
-
     [SerializeField] protected Throwable defaultthrowable;
     [SerializeField] protected Transform throwableSpawnPoint;
 	[SerializeField] protected AbilityIcon[] powerupButtons;
@@ -14,6 +13,10 @@ public class Character : MonoBehaviour, IHitable {
 
 	[SerializeField] protected int maxAnger;
 	[SerializeField] protected float cooldown;
+
+
+	public Throwable ActiveThrowable { get { return currentThrowable; } }
+
 
 	protected Throwable currentThrowable;
 	protected int anger;

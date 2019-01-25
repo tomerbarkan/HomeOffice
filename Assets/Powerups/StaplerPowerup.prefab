@@ -46,3 +46,4 @@ MonoBehaviour:
   iconSprite: {fileID: 21300000, guid: 7e48799f0a70cfe4bbdc25be1ddbc62c, type: 3}
   throwablePrefab: {fileID: 529960348515343547, guid: 810cc99e3bbc48e42b92bd95b8d260ea,
     type: 3}
+  activeTime: 8
