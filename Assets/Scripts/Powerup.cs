@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Powerup : ScriptableObject
+public abstract class Powerup : MonoBehaviour
 {
 	[SerializeField] protected Sprite iconSprite;
 
