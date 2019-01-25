@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Throwable : MonoBehaviour
 {
-    [SerializeField] protected Rigidbody throwableRigidbody;
+    [SerializeField] public Rigidbody throwableRigidbody;
 	public int damage;
 
 	public Character thrower;
