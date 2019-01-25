@@ -9,8 +9,6 @@ public class EnemyAIHandler
     protected Vector3 position;
     protected PowerupCollectible[] powerupOptions;
 
-    float hitChances = 0.5f;
-
     float timeUntilNextBoost;
 
     public EnemyAIHandler(Character enemy, Character player, Vector3 position, PowerupCollectible[] powerupOptions)
@@ -27,14 +25,14 @@ public class EnemyAIHandler
     {
         if (enemyCharacter.cooldownRemaining <= 0)
         {
-            bool willHit = (Random.value <= hitChances);
+            bool willHit = (Random.value <= ConfigManager.instance.enemyHitChance);
             Vector3 positionModifier = Vector3.zero;
             float timeModifier = 0;
             if (!willHit)
             {
                 Debug.Log("Will not hit!");
-                positionModifier = Random.value <= 0.5f ? Vector3.right * Random.Range(3f, 5) : Vector3.right * Random.Range(-10f, -5f);
-                timeModifier = Random.Range(0f, 1f);
+                positionModifier = Random.value <= 0.5f ? Vector3.right * Random.Range(2.5f, 5f) : Vector3.right * Random.Range(-2.5f, -5f);
+                timeModifier = Random.Range(-0.5f, 1f);
             }
             enemyCharacter.Throw(calculateBestThrowSpeed(enemyCharacter.throwableSpawnPoint.position,
                 playerCharacter.transform.position + positionModifier, 2 + timeModifier));
@@ -51,7 +49,7 @@ public class EnemyAIHandler
 
     float GetTimeUntilNextBoost()
     {
-        return Random.Range(3f, 7f);
+        return Random.Range(ConfigManager.instance.enemyBoostMin, ConfigManager.instance.enemyBoostMax);
     }
 
      Vector3 calculateBestThrowSpeed(Vector3 origin, Vector3 target, float timeToTarget)

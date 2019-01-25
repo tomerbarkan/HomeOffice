@@ -647,7 +647,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxThrowSpeed: 15
-  boostRate: 4
+  boostRate: 7
+  enemyHitChance: 0.6
+  enemyBoostMin: 5
+  enemyBoostMax: 14
 --- !u!114 &1117380152 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 642760580515029289, guid: 34466e3bee3947e41b31695fb49887a0,
