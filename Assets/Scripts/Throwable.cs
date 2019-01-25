@@ -6,6 +6,8 @@ using UnityEngine;
 public abstract class Throwable : MonoBehaviour
 {
     [SerializeField] protected Rigidbody throwableRigidbody;
+	public int damage;
+
 	public Character thrower;
 
     public void Throw(Vector2 force, Character thrower) {

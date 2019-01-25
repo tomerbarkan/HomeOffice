@@ -15,18 +15,27 @@ public class Character : MonoBehaviour, IHitable
     [SerializeField] protected Throwable defaultthrowable;
     [SerializeField] protected Transform throwableSpawnPoint;
 	[SerializeField] protected PowerupButton[] powerupButtons;
+	[SerializeField] protected int maxAnger;
 
-    protected Throwable currentThrowable;
+	protected Throwable currentThrowable;
+	protected int anger;
 
 	protected List<Powerup> powerUps;
 
 	public void Awake() {
 		powerUps = new List<Powerup>();
 		currentThrowable = defaultthrowable;
+		anger = 0;
 	}
 
 	public void Hit(Throwable throwable) {
-		Debug.LogFormat("Hit by {0} thrown by {1}", throwable.name, throwable.thrower.name);
+		anger += throwable.damage;
+		Debug.Log("Anger: " + anger);
+
+		if (anger >= maxAnger) {
+			Debug.Log("Game over. Loser: " + name);
+		}
+
 		Destroy(throwable.gameObject);
     }
 
