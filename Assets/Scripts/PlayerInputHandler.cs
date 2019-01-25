@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerInputHandler {
 	protected Character player;
@@ -14,6 +15,10 @@ public class PlayerInputHandler {
 	}
 
 	public void HandleInput() {
+		if (EventSystem.current.IsPointerOverGameObject()) {
+			return;
+		}
+
 		if (Input.GetMouseButtonDown(0)) {
 			Vector2 playerScreenPoint = camera.WorldToScreenPoint(playerPosition);
 			Vector2 toMouse = (Vector2)Input.mousePosition - playerScreenPoint;

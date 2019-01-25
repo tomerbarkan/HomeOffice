@@ -73,7 +73,19 @@ public class Character : MonoBehaviour, IHitable {
 
 	protected void UpdatePowerupIcons() {
 		for (int i = 0; i < powerupButtons.Length; i++) {
-			powerupButtons[i].Set(powerUps[i]?.Sprite, () => powerUps[i]?.ActivatePowerup(this));
+			int index = i;
+			powerupButtons[i].Set(i < powerUps.Count ? powerUps[i]?.Sprite : null, () => ActivatePowerup(index));
 		}
+	}
+
+	protected void ActivatePowerup(int index) {
+		Debug.Log("Activating powerup");
+		if (index >= powerUps.Count) {
+			return;
+		}
+
+		powerUps[index].ActivatePowerup(this);
+		powerUps.RemoveAt(index);
+		UpdatePowerupIcons();
 	}
 }

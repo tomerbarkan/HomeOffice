@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a63743398494a48953642a91ebdc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconSprite: {fileID: 0}
+  iconSprite: {fileID: 21300000, guid: 7e48799f0a70cfe4bbdc25be1ddbc62c, type: 3}
   throwablePrefab: {fileID: 529960348515343547, guid: 810cc99e3bbc48e42b92bd95b8d260ea,
     type: 3}
