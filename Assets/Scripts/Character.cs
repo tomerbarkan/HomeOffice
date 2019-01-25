@@ -16,9 +16,11 @@ public class Character : MonoBehaviour, IHitable
     [SerializeField] protected Transform throwableSpawnPoint;
 	[SerializeField] protected PowerupButton[] powerupButtons;
 	[SerializeField] protected int maxAnger;
+	[SerializeField] protected float cooldown;
 
 	protected Throwable currentThrowable;
 	protected int anger;
+	protected float cooldownRemaining;
 
 	protected List<Powerup> powerUps;
 
@@ -26,7 +28,13 @@ public class Character : MonoBehaviour, IHitable
 		powerUps = new List<Powerup>();
 		currentThrowable = defaultthrowable;
 		anger = 0;
+		cooldownRemaining = 0;
 	}
+
+	public void Update() {
+		cooldownRemaining -= Time.deltaTime;
+	}
+
 
 	public void Hit(Throwable throwable) {
 		anger += throwable.damage;
@@ -40,10 +48,15 @@ public class Character : MonoBehaviour, IHitable
     }
 
     public void Throw(Vector2 force) {
+		if (cooldownRemaining > 0) {
+			return;
+		}
+
         Throwable spawnedThrowable = Throwable.Instantiate<Throwable>(currentThrowable);
         spawnedThrowable.transform.position = throwableSpawnPoint.position;
 		spawnedThrowable.transform.forward = force;
         spawnedThrowable.Throw(force, this);
+		cooldownRemaining = cooldown;
     }
 
 	public void AddPowerup(Powerup powerup) {
