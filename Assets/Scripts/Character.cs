@@ -9,6 +9,9 @@ public class Character : MonoBehaviour, IHitable {
     [SerializeField] protected Throwable defaultthrowable;
     [SerializeField] protected Transform throwableSpawnPoint;
 	[SerializeField] protected AbilityIcon[] powerupButtons;
+	[SerializeField] protected ThrowCooldownUI cooldownMeter;
+	[SerializeField] protected AngerMeterUI angerMeter;
+
 	[SerializeField] protected int maxAnger;
 	[SerializeField] protected float cooldown;
 
@@ -23,20 +26,19 @@ public class Character : MonoBehaviour, IHitable {
 		currentThrowable = defaultthrowable;
 		anger = 0;
 		cooldownRemaining = 0;
+		SetAnger(0);
 	}
 
 	public void Update() {
 		cooldownRemaining -= Time.deltaTime;
+		if (cooldownMeter != null) {
+			cooldownMeter.Set(1f - Mathf.Clamp(cooldownRemaining, 0, cooldown) / cooldown);
+		}
 	}
 
 
 	public void Hit(Throwable throwable) {
-		anger += throwable.damage;
-		Debug.Log("Anger: " + anger);
-
-		if (anger >= maxAnger) {
-			Debug.Log("Game over. Loser: " + name);
-		}
+		SetAnger(anger + throwable.damage);
 
 		Destroy(throwable.gameObject);
     }
@@ -79,7 +81,6 @@ public class Character : MonoBehaviour, IHitable {
 	}
 
 	protected void ActivatePowerup(int index) {
-		Debug.Log("Activating powerup");
 		if (index >= powerUps.Count) {
 			return;
 		}
@@ -87,5 +88,16 @@ public class Character : MonoBehaviour, IHitable {
 		powerUps[index].ActivatePowerup(this);
 		powerUps.RemoveAt(index);
 		UpdatePowerupIcons();
+	}
+
+	protected void SetAnger(int anger) {
+		this.anger = anger;
+		if (angerMeter != null) {
+			angerMeter.Set((float)anger / maxAnger);
+		}
+
+		if (anger >= maxAnger) {
+			Debug.Log("Game over. Loser: " + name);
+		}
 	}
 }
