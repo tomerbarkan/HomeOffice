@@ -14,7 +14,7 @@ public abstract class Throwable : MonoBehaviour
         SetVelocity(force, thrower);
     }
 
-	public void OnTriggerEnter(Collider other) {
+	public virtual void OnTriggerEnter(Collider other) {
 		IHitable hittable = other.GetComponent<IHitable>();
 		if (hittable != null && (object)hittable != thrower) {
 			hittable.Hit(this);
@@ -25,5 +25,10 @@ public abstract class Throwable : MonoBehaviour
     {
         throwableRigidbody.velocity = force;
         this.thrower = thrower;
+    }
+
+    public virtual void OnHitCharacter(Character hit)
+    {
+
     }
 }

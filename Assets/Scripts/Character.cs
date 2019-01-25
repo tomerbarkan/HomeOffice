@@ -9,23 +9,33 @@ public class Character : MonoBehaviour, IHitable {
     public Transform throwableSpawnPoint;
     public float cooldownRemaining;
 
+    public bool canHeal = true;
+    [SerializeField] protected ParticleSystem fireParticles;
+   
     [SerializeField] protected Throwable defaultthrowable;
 	[SerializeField] protected AbilityIcon[] powerupButtons;
 	[SerializeField] protected ThrowCooldownUI cooldownMeter;
 	[SerializeField] protected AngerMeterUI angerMeter;
 
+    [SerializeField] protected float angeyDecayPerSecond;
 	[SerializeField] protected int maxAnger;
 	[SerializeField] protected float cooldown;
+
+    [SerializeField] protected AudioSource fireScreamAudioSource;
 
 
 	public Throwable ActiveThrowable { get { return currentThrowable; } }
 
 
 	protected Throwable currentThrowable;
-	protected int anger;
+	protected float anger;
 	protected float startCooldown;
 
 	protected List<Powerup> powerUps;
+
+    bool onFire = false;
+    float timeOnFireRemaining = 0;
+    
 
 	public void Awake() {
 		powerUps = new List<Powerup>();
@@ -41,17 +51,33 @@ public class Character : MonoBehaviour, IHitable {
 		if (cooldownMeter != null) {
 			cooldownMeter.Set(1f - Mathf.Clamp(cooldownRemaining, 0, startCooldown) / startCooldown);
 		}
+
+        SetAnger(anger - (angeyDecayPerSecond * Time.deltaTime));
+
+       
+        if(onFire)
+        {
+            timeOnFireRemaining -= Time.deltaTime;
+            if (timeOnFireRemaining <= 0)
+            {
+                onFire = false;
+                fireParticles.Stop();
+                canHeal = true;
+                fireScreamAudioSource.Stop();
+            }
+        }
 	}
 
 
 	public void Hit(Throwable throwable) {
 		SetAnger(anger + throwable.damage);
-
+        throwable.OnHitCharacter(this);
 		Destroy(throwable.gameObject);
     }
 
 	public void Heal(int amount) {
-		SetAnger(anger - amount);
+        if(canHeal)
+	    	SetAnger(anger - amount);
 	}
 
     public void Throw(Vector2 force) {
@@ -106,7 +132,7 @@ public class Character : MonoBehaviour, IHitable {
 		UpdatePowerupIcons();
 	}
 
-	protected void SetAnger(int anger) {
+	protected void SetAnger(float anger) {
 		this.anger = Mathf.Clamp(anger, 0, maxAnger);
 		if (angerMeter != null) {
 			angerMeter.Set((float)anger / maxAnger);
@@ -116,4 +142,13 @@ public class Character : MonoBehaviour, IHitable {
 			Debug.Log("Game over. Loser: " + name);
 		}
 	}
+
+    public void SetOnFire(float time)
+    {
+        fireParticles.Play();
+        timeOnFireRemaining = time;
+        canHeal = false;
+        onFire = true;
+        fireScreamAudioSource.Play();
+    }
 }
