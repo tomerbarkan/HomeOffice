@@ -7,6 +7,8 @@ using UnityEngine.Events;
 public class Character : MonoBehaviour, IHitable {
 
     public Transform throwableSpawnPoint;
+    public Transform fanSpawnPoint;
+
     public float cooldownRemaining;
 
     public bool canHeal = true;
@@ -154,4 +156,6 @@ public class Character : MonoBehaviour, IHitable {
         onFire = true;
         fireScreamAudioSource.Play();
     }
+
+   
 }
