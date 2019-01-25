@@ -12,6 +12,7 @@ public abstract class Throwable : MonoBehaviour
 
     public virtual void Throw(Vector2 force, Character thrower) {
         SetVelocity(force, thrower);
+		StartCoroutine(DestroyAfterTime());
     }
 
 	public virtual void OnTriggerEnter(Collider other) {
@@ -31,4 +32,9 @@ public abstract class Throwable : MonoBehaviour
     {
 
     }
+
+	public virtual IEnumerator DestroyAfterTime() {
+		yield return new WaitForSeconds(ConfigManager.instance.throwableLiveTime);
+		Destroy(gameObject);
+	}
 }

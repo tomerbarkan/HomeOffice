@@ -12,6 +12,9 @@ public class ConfigManager : MonoBehaviour
 	public float enemyBoostMax = 14f;
 	public float cooldown = 1f;
 	public float stageTime = 60f;
+	public float maxSwipeRange = 300f;
+	public float minSwipeRange = 15f;
+	public float throwableLiveTime = 5f;
 
 	public static ConfigManager instance;
 

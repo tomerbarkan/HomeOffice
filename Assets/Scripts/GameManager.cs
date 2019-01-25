@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+	public static GameManager instance;
+
 	public Character player;
     public Character enemy;
 	public new Camera camera;
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
 
 
 	private void Awake() {
+		instance = this;
 		GameObject.Instantiate(nextConfigs[nextConfig++]);
 	}
 

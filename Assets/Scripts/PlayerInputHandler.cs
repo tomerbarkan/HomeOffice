@@ -20,10 +20,25 @@ public class PlayerInputHandler {
 		}
 
 		if (Input.GetMouseButtonDown(0)) {
-			Vector2 playerScreenPoint = camera.WorldToScreenPoint(playerPosition);
-			Vector2 toMouse = (Vector2)Input.mousePosition - playerScreenPoint;
-			float force = Mathf.InverseLerp(0, 100, toMouse.magnitude);
-			player.Throw(toMouse.normalized * (force * ConfigManager.instance.maxThrowSpeed));
+			GameManager.instance.StartCoroutine(HandleSwipe());
 		}
+	}
+
+	public IEnumerator HandleSwipe() {
+		Vector2 mouseStart = Input.mousePosition;
+
+		while (!Input.GetMouseButtonUp(0)) {
+			yield return null;
+		}
+
+		Vector2 mouseEnd = Input.mousePosition;
+		Vector2 toMouse = mouseEnd - mouseStart;
+		float mag = toMouse.magnitude;
+		if (mag < ConfigManager.instance.minSwipeRange) {
+			yield break;
+		}
+
+		float force = Mathf.InverseLerp(0, ConfigManager.instance.maxSwipeRange, toMouse.magnitude);
+		player.Throw(toMouse.normalized * (force * ConfigManager.instance.maxThrowSpeed));
 	}
 }
