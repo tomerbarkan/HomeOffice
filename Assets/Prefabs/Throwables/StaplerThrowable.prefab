@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8290653636994969518}
   - component: {fileID: 2717000340235448133}
   - component: {fileID: 529960348515343547}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: StaplerThrowable
   m_TagString: Untagged
   m_Icon: {fileID: 0}

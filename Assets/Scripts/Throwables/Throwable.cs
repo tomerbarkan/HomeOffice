@@ -11,8 +11,7 @@ public abstract class Throwable : MonoBehaviour
 	public Character thrower;
 
     public virtual void Throw(Vector2 force, Character thrower) {
-		throwableRigidbody.velocity = force;
-		this.thrower = thrower;
+        SetVelocity(force, thrower);
     }
 
 	public void OnTriggerEnter(Collider other) {
@@ -21,4 +20,10 @@ public abstract class Throwable : MonoBehaviour
 			hittable.Hit(this);
 		}
 	}
+
+    public void SetVelocity(Vector2 force, Character thrower)
+    {
+        throwableRigidbody.velocity = force;
+        this.thrower = thrower;
+    }
 }

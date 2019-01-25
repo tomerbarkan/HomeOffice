@@ -15,14 +15,16 @@ public class SplitThrowable : BasicThrowable
         Throwable[] instadThrowables = new Throwable[additioalThrowables];
 
         Throwable spawnedThrowable = Throwable.Instantiate<Throwable>(additionalThrowablePrefab);
+        
+
         spawnedThrowable.transform.position = transform.position + (Vector3.up * 0.5f);
         spawnedThrowable.transform.forward = force;
-        spawnedThrowable.throwableRigidbody.velocity = force;
+        // spawnedThrowable.throwableRigidbody.velocity = force;
+        spawnedThrowable.SetVelocity(Quaternion.Euler(0, 0, 15) * force, thrower);
+        spawnedThrowable.transform.Rotate(Vector3.left * 10);
 
         spawnedThrowable = Throwable.Instantiate<Throwable>(additionalThrowablePrefab);
-        spawnedThrowable.transform.position = transform.position + (Vector3.down * 0.5f);
-        spawnedThrowable.transform.forward = force;
-        spawnedThrowable.throwableRigidbody.velocity = force;
-
+        spawnedThrowable.transform.position = transform.position + (Vector3.down * 0.4f);
+        spawnedThrowable.SetVelocity(Quaternion.Euler(0, 0, -15) * force, thrower);
     }
 }
