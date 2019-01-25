@@ -5,8 +5,11 @@ using UnityEngine.Events;
 
 
 public class Character : MonoBehaviour, IHitable {
+
+    public Transform throwableSpawnPoint;
+    public float cooldownRemaining;
+
     [SerializeField] protected Throwable defaultthrowable;
-    [SerializeField] protected Transform throwableSpawnPoint;
 	[SerializeField] protected AbilityIcon[] powerupButtons;
 	[SerializeField] protected ThrowCooldownUI cooldownMeter;
 	[SerializeField] protected AngerMeterUI angerMeter;
@@ -20,7 +23,7 @@ public class Character : MonoBehaviour, IHitable {
 
 	protected Throwable currentThrowable;
 	protected int anger;
-	protected float cooldownRemaining;
+	
 
 	protected List<Powerup> powerUps;
 
