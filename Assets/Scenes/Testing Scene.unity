@@ -520,6 +520,18 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 222591708, guid: 34466e3bee3947e41b31695fb49887a0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 222591708, guid: 34466e3bee3947e41b31695fb49887a0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 222591708, guid: 34466e3bee3947e41b31695fb49887a0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 7686713950231229120, guid: 34466e3bee3947e41b31695fb49887a0,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -612,7 +624,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1048343858
 MonoBehaviour:
@@ -756,22 +768,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: maxAnger
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: angerMeter
-      value: 
-      objectReference: {fileID: 2062169066}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: cooldown
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: layer.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
     - target: {fileID: 4407603097667825462, guid: f1c38a869dba0644ea04e917c595ee79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -810,7 +806,7 @@ PrefabInstance:
     - target: {fileID: 4407603097667825462, guid: f1c38a869dba0644ea04e917c595ee79,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4407603097667825462, guid: f1c38a869dba0644ea04e917c595ee79,
         type: 3}
@@ -826,6 +822,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: maxAnger
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: angerMeter
+      value: 
+      objectReference: {fileID: 2062169066}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: cooldown
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: layer.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 1990961755, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
       propertyPath: m_LocalPosition.z
@@ -938,42 +950,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Office Player
       objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: powerupButtons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: maxAnger
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: powerupButtons.Array.data[0]
-      value: 
-      objectReference: {fileID: 2060177606}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: powerupButtons.Array.data[1]
-      value: 
-      objectReference: {fileID: 420117186}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: powerupButtons.Array.data[2]
-      value: 
-      objectReference: {fileID: 293410253}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: cooldownMeter
-      value: 
-      objectReference: {fileID: 1117380152}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: cooldown
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: angerMeter
-      value: 
-      objectReference: {fileID: 734920476}
-    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
-      propertyPath: layer.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
     - target: {fileID: 4407603097667825462, guid: f1c38a869dba0644ea04e917c595ee79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1028,6 +1004,42 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: powerupButtons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: maxAnger
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: powerupButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 2060177606}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: powerupButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 420117186}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: powerupButtons.Array.data[2]
+      value: 
+      objectReference: {fileID: 293410253}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: cooldownMeter
+      value: 
+      objectReference: {fileID: 1117380152}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: cooldown
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: angerMeter
+      value: 
+      objectReference: {fileID: 734920476}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: layer.m_Bits
+      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 1990961755, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
       propertyPath: m_LocalPosition.z
