@@ -23,7 +23,7 @@ public class Character : MonoBehaviour, IHitable {
 
 	protected Throwable currentThrowable;
 	protected int anger;
-	
+	protected float startCooldown;
 
 	protected List<Powerup> powerUps;
 
@@ -32,13 +32,14 @@ public class Character : MonoBehaviour, IHitable {
 		currentThrowable = defaultthrowable;
 		anger = 0;
 		cooldownRemaining = 0;
+		startCooldown = cooldown;
 		SetAnger(0);
 	}
 
 	public void Update() {
 		cooldownRemaining -= Time.deltaTime;
 		if (cooldownMeter != null) {
-			cooldownMeter.Set(1f - Mathf.Clamp(cooldownRemaining, 0, cooldown) / cooldown);
+			cooldownMeter.Set(1f - Mathf.Clamp(cooldownRemaining, 0, startCooldown) / startCooldown);
 		}
 	}
 
@@ -48,6 +49,10 @@ public class Character : MonoBehaviour, IHitable {
 
 		Destroy(throwable.gameObject);
     }
+
+	public void Heal(int amount) {
+		SetAnger(anger - amount);
+	}
 
     public void Throw(Vector2 force) {
 		if (cooldownRemaining > 0) {
@@ -59,6 +64,7 @@ public class Character : MonoBehaviour, IHitable {
 		spawnedThrowable.transform.forward = force;
         spawnedThrowable.Throw(force, this);
 		cooldownRemaining = cooldown;
+		startCooldown = cooldown;
     }
 
 	public void AddPowerup(Powerup powerup) {
@@ -75,6 +81,10 @@ public class Character : MonoBehaviour, IHitable {
 		this.currentThrowable = throwable ?? defaultthrowable;
 	}
 
+	public void SetSingleCooldown(float cooldown) {
+		cooldownRemaining = cooldown;
+		startCooldown = cooldown;
+	}
 
 
 
@@ -97,7 +107,7 @@ public class Character : MonoBehaviour, IHitable {
 	}
 
 	protected void SetAnger(int anger) {
-		this.anger = anger;
+		this.anger = Mathf.Clamp(anger, 0, maxAnger);
 		if (angerMeter != null) {
 			angerMeter.Set((float)anger / maxAnger);
 		}
