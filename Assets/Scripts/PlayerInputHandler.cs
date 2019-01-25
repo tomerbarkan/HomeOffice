@@ -17,9 +17,8 @@ public class PlayerInputHandler {
 		if (Input.GetMouseButtonDown(0)) {
 			Vector2 playerScreenPoint = camera.WorldToScreenPoint(playerPosition);
 			Vector2 toMouse = (Vector2)Input.mousePosition - playerScreenPoint;
-			float angle = Vector2.Angle(Vector2.right, toMouse);
-			float force = Mathf.Clamp(toMouse.magnitude, 0, 1);
-			player.Throw(angle, force);
+			float force = Mathf.InverseLerp(0, 100, toMouse.magnitude);
+			player.Throw(toMouse.normalized * (force * ConfigManager.instance.maxThrowSpeed));
 		}
 	}
 }

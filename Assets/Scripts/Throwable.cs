@@ -7,27 +7,9 @@ public abstract class Throwable : MonoBehaviour
 {
     [SerializeField]
     protected Rigidbody throwableRigidbody;
-    // Start is called before the first frame update
-    protected  virtual void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    protected virtual void Update()
-    {
-        
-    }
-
-    //public void Throw(float angle, float force)
-    //{
-    //    throwableRigidbody.AddForce(0, 0, force);
-    //}
-
-
-    public void Throw(Vector3 force)
-    {
-
+    public void Throw(Vector2 force) {
+		throwableRigidbody.velocity = force;
     }
     
 }

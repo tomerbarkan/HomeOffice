@@ -6,50 +6,16 @@ using UnityEngine.Events;
 
 public class Character : MonoBehaviour, IHitable
 {
-    public UnityEvent onHit { get; protected set; }
+    [SerializeField] protected Throwable currentThrowable;
+    [SerializeField] protected Transform throwableSpawnPoint;
 
-   
-
-    [SerializeField]
-    protected Throwable currentThrowable;
-    [SerializeField]
-    protected Transform throwableSpawnPoint;
-
-    public void Hit()
-    {
-        onHit.Invoke();
+    public void Hit(Character thrower) {
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-    
-    //}
-
-    //bool CheckInputFire()
-    //{
-    //    return true;
-    //}
-
-    public void Throw(float angle, float force)
-    {
-        //Throwable spawnedThrowable = Throwable.Instantiate<Throwable>(currentThrowable);
-        //spawnedThrowable.transform.position = throwableSpawnPoint.position;
-        //spawnedThrowable.transform.eulerAngles = new Vector3(angle, spawnedThrowable.transform.eulerAngles.y, spawnedThrowable.transform.eulerAngles.z);
-        //spawnedThrowable.Throw(angle, force);
-    }
-
-    public void Throw(Vector3 force)
-    {
+    public void Throw(Vector2 force) {
         Throwable spawnedThrowable = Throwable.Instantiate<Throwable>(currentThrowable);
         spawnedThrowable.transform.position = throwableSpawnPoint.position;
-        //spawnedThrowable.transform.eulerAngles = new Vector3(angle, spawnedThrowable.transform.eulerAngles.y, spawnedThrowable.transform.eulerAngles.z);
+		spawnedThrowable.transform.forward = force;
         spawnedThrowable.Throw(force);
     }
 }
