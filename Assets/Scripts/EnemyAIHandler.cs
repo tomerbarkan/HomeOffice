@@ -11,6 +11,8 @@ public class EnemyAIHandler
 
     float timeUntilNextBoost;
 
+    bool shootingThisFrame = false;
+
     public EnemyAIHandler(Character enemy, Character player, Vector3 position, PowerupCollectible[] powerupOptions)
     {
         this.enemyCharacter = enemy;
@@ -25,8 +27,11 @@ public class EnemyAIHandler
     {
         if (enemyCharacter.cooldownRemaining <= 0.2f)
         {
-            if (enemyCharacter.canShoot)
+            if (enemyCharacter.canShoot && !shootingThisFrame)
+            {
                 enemyCharacter.animator.SetTrigger("Throw");
+                shootingThisFrame = true;
+            }
             if (enemyCharacter.cooldownRemaining <= 0)
             {
                 bool willHit = (Random.value <= ConfigManager.instance.enemyHitChance);
@@ -40,6 +45,7 @@ public class EnemyAIHandler
                 }
                 enemyCharacter.Throw(calculateBestThrowSpeed(enemyCharacter.throwableSpawnPoint.position,
                     playerCharacter.aimToPoint.position + positionModifier, 2 + timeModifier));
+                shootingThisFrame = false;
             }
         }
 

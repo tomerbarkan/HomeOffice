@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconSprite: {fileID: 21300000, guid: a5f5d84504765de4bb33a84f9ff4741b, type: 3}
+  audioClip: {fileID: 8300000, guid: f829a816b83b54248827a1a06ab783c1, type: 3}
   activeTime: 4
   cooldown: 0.25
