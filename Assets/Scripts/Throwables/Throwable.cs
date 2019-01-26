@@ -9,6 +9,7 @@ public abstract class Throwable : MonoBehaviour
 	public int damage;
 
 	public Character thrower;
+	public Sprite sprite;
 
     public virtual void Throw(Vector2 force, Character thrower) {
         SetVelocity(force, thrower);

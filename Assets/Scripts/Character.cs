@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 
 public class Character : MonoBehaviour, IHitable {
@@ -24,6 +25,7 @@ public class Character : MonoBehaviour, IHitable {
     public bool canGetHit = true;
     public bool canShoot = true;
 
+	public Image weaponIcon;
 
 
     [SerializeField] protected ParticleSystem fireParticles;
@@ -58,7 +60,7 @@ public class Character : MonoBehaviour, IHitable {
 
 	public void Awake() {
 		powerUps = new List<Powerup>();
-		currentThrowable = defaultthrowable;
+		SetThrowable(defaultthrowable);
 	}
 
 	public void Start() {
@@ -135,6 +137,7 @@ public class Character : MonoBehaviour, IHitable {
 
 	public void SetThrowable(Throwable throwable) {
 		this.currentThrowable = throwable ?? defaultthrowable;
+		weaponIcon.sprite = throwable.sprite;
 	}
 
 	public void SetSingleCooldown(float cooldown) {

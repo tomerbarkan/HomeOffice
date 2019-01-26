@@ -79,6 +79,7 @@ MonoBehaviour:
   throwableRigidbody: {fileID: 4543379256191809368}
   damage: 10
   thrower: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 578f4b0a0b5a37f4883aaae9f05e4859, type: 3}
 --- !u!82 &2449174929474056996
 AudioSource:
   m_ObjectHideFlags: 0
