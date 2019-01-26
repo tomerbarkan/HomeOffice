@@ -79,6 +79,7 @@ MonoBehaviour:
   throwableRigidbody: {fileID: 2717000340235448133}
   damage: 10
   thrower: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 730d890308218784586e7f167cc041d9, type: 3}
   additionalThrowablePrefab: {fileID: 2753836684006144929}
   additioalThrowables: 2
 --- !u!82 &7541299132618223929
