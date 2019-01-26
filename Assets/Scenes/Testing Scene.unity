@@ -1004,6 +1004,8 @@ MonoBehaviour:
   - {fileID: 8661232094519930084, guid: 7f5ad70950e58cd4e8b06f60649fb5a0, type: 3}
   - {fileID: 5142489360965837173, guid: 8f7e454bc34eb994fab5aaa03e1331d1, type: 3}
   - {fileID: 7941030362117840912, guid: 312c9c7a4355dc94ead2cd703b9e51cc, type: 3}
+  - {fileID: 5592349381317796152, guid: 897c7986b317c8c4a81326fd67977143, type: 3}
+  - {fileID: 8661232094519930084, guid: f6173666c828326448293edbc2a8eae6, type: 3}
   useAi: 0
   clockHandle: {fileID: 1030139326}
   audioManager: {fileID: 54477563}
@@ -1264,6 +1266,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1800672148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3950999842757575629, guid: 34466e3bee3947e41b31695fb49887a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1016740608}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b730f3d6d7d85a94db3270ee0eb539fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1924510799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1288,6 +1302,10 @@ PrefabInstance:
       propertyPath: additionalCooldown
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 239023433, guid: f1c38a869dba0644ea04e917c595ee79, type: 3}
+      propertyPath: cooldownMeter
+      value: 
+      objectReference: {fileID: 1800672148}
     - target: {fileID: 4407603097667825462, guid: f1c38a869dba0644ea04e917c595ee79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1442,6 +1460,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f21890d7ee4144382a87c044db6b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &2146969290
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1753039972112571351, guid: 897c7986b317c8c4a81326fd67977143,
+        type: 3}
+      propertyPath: m_Name
+      value: FrenzyPowerupCollectible
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753039972112571344, guid: 897c7986b317c8c4a81326fd67977143,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753039972112571344, guid: 897c7986b317c8c4a81326fd67977143,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753039972112571344, guid: 897c7986b317c8c4a81326fd67977143,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753039972112571344, guid: 897c7986b317c8c4a81326fd67977143,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753039972112571344, guid: 897c7986b317c8c4a81326fd67977143,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753039972112571344, guid: 897c7986b317c8c4a81326fd67977143,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753039972112571344, guid: 897c7986b317c8c4a81326fd67977143,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753039972112571344, guid: 897c7986b317c8c4a81326fd67977143,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753039972112571344, guid: 897c7986b317c8c4a81326fd67977143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753039972112571344, guid: 897c7986b317c8c4a81326fd67977143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753039972112571344, guid: 897c7986b317c8c4a81326fd67977143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 897c7986b317c8c4a81326fd67977143, type: 3}
 --- !u!1001 &4407603097834740351
 PrefabInstance:
   m_ObjectHideFlags: 0
