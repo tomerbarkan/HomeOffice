@@ -35,15 +35,15 @@ public class PlayerInputHandler {
 			return;
 		}
 
-		if (Input.GetKey("joystick " + playerNum + " button 3")) {
+		if (Input.GetKeyDown("joystick " + playerNum + " button 3")) {
 			player.ActivatePowerup(0);
 		}
 
-		if (Input.GetKey("joystick " + playerNum + " button 4")) {
+		if (Input.GetKeyDown("joystick " + playerNum + " button 4")) {
 			player.ActivatePowerup(1);
 		}
 
-		if (Input.GetKey("joystick " + playerNum + " button 1")) {
+		if (Input.GetKeyDown("joystick " + playerNum + " button 1")) {
 			player.ActivatePowerup(2);
 		}
 
