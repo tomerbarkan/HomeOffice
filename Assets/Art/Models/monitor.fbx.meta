@@ -1,16 +1,14 @@
 fileFormatVersion: 2
-guid: 000e5f98cadc51542842c6b2741e5ad3
+guid: c8632661db20d034d8cb79b40e9cb4d9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: stapler1_mat
-    2100002: stapler2_mat
-    2100004: stapler_mat
+    2100000: monitor_mat
     2300000: //RootNode
     3300000: //RootNode
-    4300000: stapler
+    4300000: monitor
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -42,7 +40,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 10
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
