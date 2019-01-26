@@ -11,6 +11,7 @@ public class Character : MonoBehaviour, IHitable {
     public Transform bossSpawnPoint;
     public Transform aimToPoint;
 	public Transform firedText;
+    public GameObject joint;
 
     public Animator animator;
     public Animator chairAnimator;
@@ -150,6 +151,7 @@ public class Character : MonoBehaviour, IHitable {
     {
         animator.SetTrigger("Smoke Weed");
         chairAnimator.SetTrigger("Smoke Weed");
+        joint.SetActive(true);
     }
 
 	public void SetOverrideCooldown(float cooldown) {
@@ -205,4 +207,8 @@ public class Character : MonoBehaviour, IHitable {
     }
 
    
+    void DeactivateJoint()
+    {
+        joint.SetActive(false);
+    }
 }
