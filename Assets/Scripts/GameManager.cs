@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 	public PlayerInputHandler playerInput2;
     public EnemyAIHandler enemyAI;
 	public BoostSpawner boostSpawner;
+	public Transform clockHandle;
 
     public AudioManager audioManager;
 
@@ -25,11 +26,13 @@ public class GameManager : MonoBehaviour
 
     
 	protected int nextConfig = 0;
+	protected float totalTime;
 
 
 	private void Awake() {
 		instance = this;
 		SetConfig(nextConfig++);
+		totalTime = CalculateRemainingTime();
 	}
 
 	// Start is called before the first frame update
@@ -55,15 +58,19 @@ public class GameManager : MonoBehaviour
 		}
 		boostSpawner.Simulate();
 		AdvanceStages();
+
+		float handlePercent = CalculateRemainingTime() / totalTime;
+		clockHandle.eulerAngles = new Vector3(clockHandle.eulerAngles.x, clockHandle.eulerAngles.y, handlePercent * 360);
     }
 
     [ContextMenu("Activate Next Stage")]
 	protected void AdvanceStages() {
+		ConfigManager.instance.stageTime -= Time.deltaTime;
+
 		if (nextConfig >= nextConfigs.Length) {
 			return;
 		}
 
-		ConfigManager.instance.stageTime -= Time.deltaTime;
 		if (ConfigManager.instance.stageTime <= 0) {
 			SetConfig(nextConfig++);
         }
@@ -78,5 +85,13 @@ public class GameManager : MonoBehaviour
         ConfigManager.instance = GameObject.Instantiate(nextConfigs[index]);
 	}
 
-    
+    protected float CalculateRemainingTime() {
+		float time = 0;
+		time += ConfigManager.instance.stageTime;
+		for (int i = nextConfig; i < nextConfigs.Length; i++) {
+			time += nextConfigs[i].stageTime;
+		}
+
+		return Mathf.Max(0, time);
+	}
 }
