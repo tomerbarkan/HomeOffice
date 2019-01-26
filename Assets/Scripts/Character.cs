@@ -207,7 +207,7 @@ public class Character : MonoBehaviour, IHitable {
     }
 
    
-    void DeactivateJoint()
+    public void DeactivateJoint()
     {
         joint.SetActive(false);
     }

@@ -27,6 +27,7 @@ public class JointPowerup : Powerup
 			yield return null;
 		}
 
+        activator.joint.SetActive(false);
         activator.canGetHit = true;
         activator.canShoot = true;
     }
