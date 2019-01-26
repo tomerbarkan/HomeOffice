@@ -6,10 +6,17 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: table1_mat
+    2100002: table_mat
     2300000: //RootNode
     3300000: //RootNode
     4300000: table1
-  externalObjects: {}
+    4300002: table
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: table_mat
+    second: {fileID: 2100000, guid: a0b45ef716b613d49921cb58414d44c1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
