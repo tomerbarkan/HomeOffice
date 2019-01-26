@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconSprite: {fileID: 21300000, guid: 6c0e0db259944c14b9075948e4b573d4, type: 3}
+  audioClip: {fileID: 8300000, guid: d6e5477133aba40449b29062e542fd4d, type: 3}
   throwablePrefab: {fileID: 3674293171245862420, guid: 6bcaf391b04cd7d4eaaf4358e64d63c5,
     type: 3}
   activeTime: 5

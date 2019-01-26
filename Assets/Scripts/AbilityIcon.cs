@@ -31,4 +31,9 @@ public class AbilityIcon : MonoBehaviour
 
         audioSource.clip = clip;
     }
+
+    public void PlayClip()
+    {
+        AudioManager.Instance.PlayAudioOneShot(audioSource.clip);
+    }
 }

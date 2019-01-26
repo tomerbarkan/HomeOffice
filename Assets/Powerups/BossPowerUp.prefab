@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3269866267735765737}
-  - component: {fileID: 3279934129941737607}
+  - component: {fileID: 5620956176638554865}
   m_Layer: 0
   m_Name: BossPowerUp
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3279934129941737607
+--- !u!114 &5620956176638554865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,10 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6441880473469062642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed109857ee1fcaa41b621a8fa1b409db, type: 3}
+  m_Script: {fileID: 11500000, guid: a966ed0ae0c6bd0428a4f55b73f41554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   iconSprite: {fileID: 21300000, guid: ab17f170ccd91584ba97a24c6170b0a6, type: 3}
-  activeTime: 6
+  audioClip: {fileID: 0}
+  activeTime: 4
   bossPrefab: {fileID: 1768625936591440502, guid: 1769ce9858cda954ab2b87ce76c78024,
     type: 3}

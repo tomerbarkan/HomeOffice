@@ -10,8 +10,10 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource jointMusicSource;
     public AudioSource mainAudioSource;
+    public AudioSource bossEnteranceAudioSource;
     public AudioSource[] phases;
-
+    
+    
 
     int currentPhase = 0;
 
@@ -42,6 +44,11 @@ public class AudioManager : MonoBehaviour
         jointMusicSource.Play();
         phases[currentPhase].Pause();
         StartCoroutine(ResumeMusic(3.75f));
+    }
+
+    public void PlayBossEnterance()
+    {
+        bossEnteranceAudioSource.Play();
     }
 
     IEnumerator ResumeMusic(float delay)
