@@ -14,11 +14,16 @@ public class Character : MonoBehaviour, IHitable {
     public Animator animator;
     public Animator chairAnimator;
 
+    public Fan fan;
+
     public float cooldownRemaining;
 
     public bool canHeal = true;
     public bool canGetHit = true;
     public bool canShoot = true;
+
+
+
 
     [SerializeField] protected ParticleSystem fireParticles;
    

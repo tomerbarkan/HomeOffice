@@ -8,6 +8,7 @@ public class AbilityIcon : MonoBehaviour
 {
     public Button button;
     public Image icon;
+    public AudioSource audioSource;
 
     [SerializeField]
     UnityAction actionToInvoke;

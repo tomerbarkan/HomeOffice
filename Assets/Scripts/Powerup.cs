@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public abstract class Powerup : MonoBehaviour
 {
 	[SerializeField] protected Sprite iconSprite;
+    [SerializeField] protected AudioClip audioClip;
 
     public virtual Sprite Sprite { get { return iconSprite; } }
 

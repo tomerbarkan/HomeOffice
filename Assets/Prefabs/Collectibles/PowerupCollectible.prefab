@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbdc349992f9df744a68c76fc7e5c897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSources:
+  - {fileID: 1699513762236650599}
+  - {fileID: 1228706618924214301}
   powerup: {fileID: 0}
 --- !u!1001 &4622500457587164233
 PrefabInstance:
@@ -73,6 +76,18 @@ PrefabInstance:
 --- !u!1 &4622500456773154408 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1889219105, guid: 71b2999637bdb39438f19aab9e18eb63,
+    type: 3}
+  m_PrefabInstance: {fileID: 4622500457587164233}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1699513762236650599 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6319545816219422766, guid: 71b2999637bdb39438f19aab9e18eb63,
+    type: 3}
+  m_PrefabInstance: {fileID: 4622500457587164233}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1228706618924214301 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5848862567144254548, guid: 71b2999637bdb39438f19aab9e18eb63,
     type: 3}
   m_PrefabInstance: {fileID: 4622500457587164233}
   m_PrefabAsset: {fileID: 0}

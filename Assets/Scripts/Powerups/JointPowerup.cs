@@ -19,6 +19,7 @@ public class JointPowerup : Powerup
         activator.canShoot = false;
 
         activator.StartSmokeWeedAnimation();
+        AudioManager.Instance.PlayJointMusic();
 
         float accumulatedHeal = 0;
 		while (delay > 0) {

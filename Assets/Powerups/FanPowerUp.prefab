@@ -44,6 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconSprite: {fileID: 21300000, guid: 1beb85dbc29c9034a8b8a5b037f27266, type: 3}
+  audioClip: {fileID: 8300000, guid: 1ac0e7d1557135a48bed71d0fa09c758, type: 3}
   activeTime: 5
-  fanPrefab: {fileID: 3451565435641786334, guid: 9f1e2cd4fc9a8c8429f68db0ea52ae68,
-    type: 3}

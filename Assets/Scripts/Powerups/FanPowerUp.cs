@@ -5,7 +5,7 @@ using UnityEngine;
 public class FanPowerUp : Powerup
 {
     public float activeTime;
-    public GameObject fanPrefab;
+   // public GameObject fanPrefab;
 
     public override void ActivatePowerup(Character activator)
     {
@@ -14,8 +14,9 @@ public class FanPowerUp : Powerup
 
     private IEnumerator DelayCoroutine(Character activator, float delay)
     {
-        GameObject spawnedFan = GameObject.Instantiate(fanPrefab, activator.fanSpawnPoint.position,activator.fanSpawnPoint.rotation);
-        
+        // GameObject spawnedFan = GameObject.Instantiate(fanPrefab, activator.fanSpawnPoint.position,activator.fanSpawnPoint.rotation);
+        activator.fan.Activate();
+
 
         while (delay > 0)
         {
@@ -25,6 +26,7 @@ public class FanPowerUp : Powerup
             yield return null;
         }
 
-        Destroy(spawnedFan);
+        activator.fan.Deactivate();
+        // Destroy(spawnedFan);
     }
 }
