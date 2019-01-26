@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a039ec7e0a3378945ae581fdd464d152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconSprite: {fileID: 21300000, guid: f0912989e3d0e2444afed91d89550428, type: 3}
+  iconSprite: {fileID: 21300000, guid: 7a51f0b10e0d2e84cb7d17b6cc51a240, type: 3}
   audioClip: {fileID: 0}
   activeTime: 4
   healAmount: 40

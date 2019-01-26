@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf77b42d1d3d1a4e8bf7c32128b7977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconSprite: {fileID: 21300000, guid: a5f5d84504765de4bb33a84f9ff4741b, type: 3}
+  iconSprite: {fileID: 21300000, guid: ae5f673cc29b62044a370e82b72f7928, type: 3}
   audioClip: {fileID: 8300000, guid: f829a816b83b54248827a1a06ab783c1, type: 3}
   activeTime: 4
   cooldown: 0.25

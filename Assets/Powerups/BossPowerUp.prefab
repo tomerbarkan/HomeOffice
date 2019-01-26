@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a966ed0ae0c6bd0428a4f55b73f41554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconSprite: {fileID: 21300000, guid: ab17f170ccd91584ba97a24c6170b0a6, type: 3}
+  iconSprite: {fileID: 21300000, guid: 8c222af010cb20b488e037b8679cb92d, type: 3}
   audioClip: {fileID: 0}
   activeTime: 5
   bossPrefab: {fileID: 1768625936591440502, guid: 1769ce9858cda954ab2b87ce76c78024,
