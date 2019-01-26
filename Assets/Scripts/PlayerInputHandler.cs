@@ -15,9 +15,9 @@ public class PlayerInputHandler {
 	protected RectTransform dragIndicator;
 
 	float widthMultiplier;
+	int playerNum;
 
-
-	public PlayerInputHandler(Character player, Vector3 playerPosition, Camera camera, RectTransform dragIndicator, string[] controllerInputs) {
+	public PlayerInputHandler(Character player, Vector3 playerPosition, Camera camera, RectTransform dragIndicator, string[] controllerInputs, int playerNum) {
 		this.player = player;
 		this.playerPosition = playerPosition;
 		this.camera = camera;
@@ -25,6 +25,7 @@ public class PlayerInputHandler {
 		this.controllerX = controllerInputs[0];
 		this.controllerY = controllerInputs[1];
 		this.controllerFire = controllerInputs[2];
+		this.playerNum = playerNum;
 
 		widthMultiplier = 1920f / Screen.width;
 	}
@@ -33,6 +34,19 @@ public class PlayerInputHandler {
 		if (EventSystem.current.IsPointerOverGameObject()) {
 			return;
 		}
+
+		if (Input.GetKey("joystick " + playerNum + " button 3")) {
+			player.ActivatePowerup(0);
+		}
+
+		if (Input.GetKey("joystick " + playerNum + " button 4")) {
+			player.ActivatePowerup(1);
+		}
+
+		if (Input.GetKey("joystick " + playerNum + " button 1")) {
+			player.ActivatePowerup(2);
+		}
+
 
 		if (player.cooldownRemaining >= 0) {
 			return;

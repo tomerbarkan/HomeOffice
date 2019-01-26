@@ -45,11 +45,11 @@ public class GameManager : MonoBehaviour
 
 	// Start is called before the first frame update
 	private void Start() {
-		playerInput = new PlayerInputHandler(player, player.transform.position, camera, dragIndicator, new string[] { "Horizontal1", "Vertical1", "Fire1" });
+		playerInput = new PlayerInputHandler(player, player.transform.position, camera, dragIndicator, new string[] { "Horizontal1", "Vertical1", "Fire1" }, 1);
 		if (useAi) {
 			enemyAI = new EnemyAIHandler(enemy, player, enemy.transform.position, powerupOptions);
 		} else {
-			playerInput2 = new PlayerInputHandler(enemy, enemy.transform.position, camera, dragIndicator2, new string[] { "Horizontal2", "Vertical2", "Fire2" });
+			playerInput2 = new PlayerInputHandler(enemy, enemy.transform.position, camera, dragIndicator2, new string[] { "Horizontal2", "Vertical2", "Fire2" }, 2);
 		}
 		boostSpawner = new BoostSpawner(boostSpawns, powerupOptions);
 
