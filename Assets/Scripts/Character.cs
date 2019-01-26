@@ -34,6 +34,7 @@ public class Character : MonoBehaviour, IHitable {
 	[SerializeField] protected AbilityIcon[] powerupButtons;
 	[SerializeField] protected ThrowCooldownUI cooldownMeter;
 	[SerializeField] protected AngerMeterUI angerMeter;
+	public GameObject powerupsArea;
 
     [SerializeField] protected float angeyDecayPerSecond;
 	[SerializeField] protected int maxAnger;

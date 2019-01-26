@@ -20,6 +20,7 @@ public class EnemyAIHandler
         this.position = position;
         this.powerupOptions = powerupOptions;
         timeUntilNextBoost = GetTimeUntilNextBoost();
+		enemy.powerupsArea.SetActive(false);
     }
 
     
