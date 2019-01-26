@@ -12,15 +12,19 @@ ModelImporter:
     400004: fanhead
     400006: fanpropellor
     2100000: lambert1
+    2100002: fan_mat
     2300000: fanbase
     2300002: fanhead
     2300004: fanpropellor
+    2300006: //RootNode
     3300000: fanbase
     3300002: fanhead
     3300004: fanpropellor
+    3300006: //RootNode
     4300000: fanbase
     4300002: fanpropellor
     4300004: fanhead
+    4300006: fan
   externalObjects: {}
   materials:
     importMaterials: 1
