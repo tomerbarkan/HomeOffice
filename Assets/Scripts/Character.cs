@@ -10,6 +10,7 @@ public class Character : MonoBehaviour, IHitable {
     public Transform fanSpawnPoint;
     public Transform bossSpawnPoint;
     public Transform aimToPoint;
+	public Transform firedText;
 
     public Animator animator;
     public Animator chairAnimator;
@@ -21,7 +22,6 @@ public class Character : MonoBehaviour, IHitable {
     public bool canHeal = true;
     public bool canGetHit = true;
     public bool canShoot = true;
-
 
 
 
@@ -183,7 +183,7 @@ public class Character : MonoBehaviour, IHitable {
 		}
 
 		if (anger >= maxAnger) {
-			Debug.Log("Game over. Loser: " + name);
+			GameManager.instance.GameOver(this);
 		}
 	}
 
