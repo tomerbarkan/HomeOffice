@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,7 +29,10 @@ public class GameManager : MonoBehaviour
 	public RectTransform dragIndicator;
 	public RectTransform dragIndicator2;
 
-    
+	public RectTransform winScreen;
+	public Button restartButton;
+
+
 	protected int nextConfig = 0;
 	protected float totalTime;
 
@@ -40,13 +45,18 @@ public class GameManager : MonoBehaviour
 
 	// Start is called before the first frame update
 	private void Start() {
-		playerInput = new PlayerInputHandler(player, player.transform.position, camera, dragIndicator, new string[] { "Horizontal1", "Vertical1", "Fire1"});
+		playerInput = new PlayerInputHandler(player, player.transform.position, camera, dragIndicator, new string[] { "Horizontal1", "Vertical1", "Fire1" });
 		if (useAi) {
 			enemyAI = new EnemyAIHandler(enemy, player, enemy.transform.position, powerupOptions);
 		} else {
-			playerInput2 = new PlayerInputHandler(enemy, enemy.transform.position, camera, dragIndicator2, new string[] { "Horizontal2", "Vertical2", "Fire2"});
+			playerInput2 = new PlayerInputHandler(enemy, enemy.transform.position, camera, dragIndicator2, new string[] { "Horizontal2", "Vertical2", "Fire2" });
 		}
 		boostSpawner = new BoostSpawner(boostSpawns, powerupOptions);
+
+		restartButton.onClick.AddListener(() => {
+			Time.timeScale = 1;
+			SceneManager.LoadScene("Testing Scene");
+		});
     }
 
     // Update is called once per frame
@@ -100,5 +110,11 @@ public class GameManager : MonoBehaviour
 		}
 
 		return Mathf.Max(0, time);
+	}
+
+	public void GameOver(Character loser) {
+		winScreen.gameObject.SetActive(true);
+		loser.firedText.gameObject.SetActive(true);
+		Time.timeScale = 0;
 	}
 }
