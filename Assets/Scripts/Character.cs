@@ -66,7 +66,9 @@ public class Character : MonoBehaviour, IHitable {
 	public void Start() {
 		anger = 0;
 		cooldownRemaining = 0;
-		startCooldown = ConfigManager.instance.cooldown + additionalCooldown;
+		if (ConfigManager.instance != null) {
+			startCooldown = ConfigManager.instance.cooldown + additionalCooldown;
+		}
 		SetAnger(0);		
 	}
 
@@ -137,7 +139,9 @@ public class Character : MonoBehaviour, IHitable {
 
 	public void SetThrowable(Throwable throwable) {
 		this.currentThrowable = throwable ?? defaultthrowable;
-		weaponIcon.sprite = throwable.sprite;
+		if (weaponIcon != null) {
+			weaponIcon.sprite = throwable.sprite;
+		}
 	}
 
 	public void SetSingleCooldown(float cooldown) {
