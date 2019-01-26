@@ -1,20 +1,20 @@
 fileFormatVersion: 2
-guid: c8632661db20d034d8cb79b40e9cb4d9
+guid: c850189b5851c474b8e81c622656e4dd
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: monitor_mat
+    2100000: mug_mat
     2300000: //RootNode
     3300000: //RootNode
-    4300000: monitor
+    4300000: mug
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: monitor_mat
-    second: {fileID: 2100000, guid: c280a1c09ecadf34993bd644d2c7e5c0, type: 2}
+      name: mug_mat
+    second: {fileID: 2100000, guid: 40ddec89874c1d14eabb71037b1b76f1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

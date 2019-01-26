@@ -9,7 +9,12 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: paperball
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: paperball1
+    second: {fileID: 2100000, guid: b7b0d6f8cd7007e43b5cccf83bb3f9dd, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

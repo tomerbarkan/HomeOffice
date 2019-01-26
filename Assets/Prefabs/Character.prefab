@@ -685,6 +685,10 @@ PrefabInstance:
       propertyPath: m_BlendShapeWeights.Array.data[3]
       value: 0.7453896
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: e017eb3389d752842a575475ac5f65fc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7eb5424f86a200b409cfae33fbaad2a3, type: 2}
     - target: {fileID: 400040, guid: e017eb3389d752842a575475ac5f65fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -46.814194
@@ -1321,6 +1325,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 521014766, guid: 9f1e2cd4fc9a8c8429f68db0ea52ae68, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fd36c4354c48cd5418df5e670e046361, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1e2cd4fc9a8c8429f68db0ea52ae68, type: 3}
 --- !u!4 &2595945598603803848 stripped
@@ -1376,10 +1384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chair Anim
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 458be83bf7471274c9f379dc3fa005c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -5.0202304e-11
-      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 458be83bf7471274c9f379dc3fa005c8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 09d19c38c228de2488fbe242e0f65277, type: 2}
     - target: {fileID: 400004, guid: 458be83bf7471274c9f379dc3fa005c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1432,10 +1440,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 458be83bf7471274c9f379dc3fa005c8, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 09d19c38c228de2488fbe242e0f65277, type: 2}
+    - target: {fileID: 400000, guid: 458be83bf7471274c9f379dc3fa005c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -5.0202304e-11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 458be83bf7471274c9f379dc3fa005c8, type: 3}
 --- !u!4 &899500823837611511 stripped

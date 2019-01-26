@@ -17,11 +17,6 @@ public abstract class Throwable : MonoBehaviour
         StartCoroutine(DestroyAfterTime());
     }
 
-    protected virtual void Update()
-    {
-        //throwableRigidbody.AddTorque(transform.right * 3);
-    }
-
     public virtual void OnTriggerEnter(Collider other) {
 		IHitable hittable = other.GetComponent<IHitable>();
 		if (hittable != null && (object)hittable != thrower) {

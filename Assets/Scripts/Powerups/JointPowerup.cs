@@ -21,13 +21,8 @@ public class JointPowerup : Powerup
         activator.StartSmokeWeedAnimation();
         AudioManager.Instance.PlayJointMusic();
 
-        float accumulatedHeal = 0;
 		while (delay > 0) {
-			accumulatedHeal += Time.deltaTime / delay * this.healAmount;
-			if (accumulatedHeal > 1) {
-				activator.Heal(Mathf.FloorToInt(accumulatedHeal));
-				accumulatedHeal -= Mathf.FloorToInt(accumulatedHeal);
-			}
+			activator.Heal(Time.deltaTime / activeTime * healAmount);
 			delay -= Time.deltaTime;
 			yield return null;
 		}

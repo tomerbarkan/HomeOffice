@@ -25,7 +25,12 @@ ModelImporter:
     4300002: fanpropellor
     4300004: fanhead
     4300006: fan
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fan_mat
+    second: {fileID: 2100000, guid: fd36c4354c48cd5418df5e670e046361, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
