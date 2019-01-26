@@ -113,8 +113,33 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void GameOver(Character loser) {
-		winScreen.gameObject.SetActive(true);
-		loser.firedText.gameObject.SetActive(true);
-		Time.timeScale = 0;
+        if (!winScreen.gameObject.activeSelf)
+        {
+            winScreen.gameObject.SetActive(true);
+            loser.firedText.gameObject.SetActive(true);
+
+
+            if (useAi)
+            {
+                if (loser == player)
+                {
+                    // TODO: play you lose
+                    audioManager.PlayYouLose();
+                }
+                else
+                {
+                    audioManager.PlayYouWin();
+                }
+            }
+            else
+            {
+                audioManager.PlayYouLose();
+                // TODO: player you win
+            }
+
+
+            Time.timeScale = 0;
+        }
+
 	}
 }

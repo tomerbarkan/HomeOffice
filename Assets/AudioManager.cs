@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource jointMusicSource;
     public AudioSource mainAudioSource;
     public AudioSource bossEnteranceAudioSource;
+    public AudioSource youWinAudioSource;
+    public AudioSource youLoseAudioSource;
     public AudioSource[] phases;
     
     
@@ -61,5 +63,15 @@ public class AudioManager : MonoBehaviour
         phases[currentPhase].Play();
     }
 
-    
+    public void PlayYouWin()
+    {
+        youWinAudioSource.Play();
+    }
+
+    public void PlayYouLose()
+    {
+        youLoseAudioSource.Play();
+    }
+
+
 }
