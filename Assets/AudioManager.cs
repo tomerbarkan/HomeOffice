@@ -12,7 +12,9 @@ public class AudioManager : MonoBehaviour
     
     public void ActivateNextPhase(int newPhase)
     {
-        phases[newPhase - 1].DOFade(0, 1);
+		if (newPhase > 0) {
+			phases[newPhase - 1].DOFade(0, 1);
+		}
         phases[newPhase].DOFade(1, 1).ChangeStartValue(0);
         phases[newPhase].Play();
     }

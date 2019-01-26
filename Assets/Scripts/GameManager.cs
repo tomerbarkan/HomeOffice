@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
 	private void Awake() {
 		instance = this;
-		GameObject.Instantiate(nextConfigs[nextConfig++]);
+		SetConfig(nextConfig++);
 	}
 
 	// Start is called before the first frame update
@@ -65,12 +65,17 @@ public class GameManager : MonoBehaviour
 
 		ConfigManager.instance.stageTime -= Time.deltaTime;
 		if (ConfigManager.instance.stageTime <= 0) {
-			Destroy(ConfigManager.instance.gameObject);
-
-            audioManager.ActivateNextPhase(nextConfig);
-            GameObject.Instantiate(nextConfigs[nextConfig++]);
-           
+			SetConfig(nextConfig++);
         }
+	}
+
+	protected void SetConfig(int index) {
+		if (ConfigManager.instance != null && ConfigManager.instance.gameObject != null) {
+			Destroy(ConfigManager.instance.gameObject);
+		}
+
+        audioManager.ActivateNextPhase(index);
+        ConfigManager.instance = GameObject.Instantiate(nextConfigs[index]);
 	}
 
     

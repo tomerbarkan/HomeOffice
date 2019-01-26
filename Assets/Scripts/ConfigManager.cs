@@ -17,8 +17,4 @@ public class ConfigManager : MonoBehaviour
 	public float throwableLiveTime = 5f;
 
 	public static ConfigManager instance;
-
-    void Awake() {
-		instance = this;
-    }
 }
