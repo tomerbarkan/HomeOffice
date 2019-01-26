@@ -11,6 +11,7 @@ public class BossPowerUp : Powerup
     {
 		GameManager.instance.player.SetSingleCooldown(activeTime);
 		GameManager.instance.enemy.SetSingleCooldown(activeTime);
+		BossScript.instance.Activate();
         //activator.StartCoroutine(DelayCoroutine(activator, activeTime));
     }
 
