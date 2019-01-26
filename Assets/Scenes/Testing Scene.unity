@@ -737,7 +737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c9d07f463a6884ab5aed3d2bb949c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmount: 30
 --- !u!1 &402127137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,7 +1548,7 @@ PrefabInstance:
     - target: {fileID: 2368156780161533358, guid: 34466e3bee3947e41b31695fb49887a0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 59.999573
+      value: 59.99951
       objectReference: {fileID: 0}
     - target: {fileID: 2368156780161533358, guid: 34466e3bee3947e41b31695fb49887a0,
         type: 3}
@@ -1564,7 +1563,7 @@ PrefabInstance:
     - target: {fileID: 7476569505170590624, guid: 34466e3bee3947e41b31695fb49887a0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 59.999573
+      value: 59.99951
       objectReference: {fileID: 0}
     - target: {fileID: 7476569505170590624, guid: 34466e3bee3947e41b31695fb49887a0,
         type: 3}
@@ -1786,6 +1785,9 @@ MonoBehaviour:
   - {fileID: 1603225908}
   - {fileID: 862590659}
   - {fileID: 241628097}
+  jointPowerup: {fileID: 1131893344, guid: 117f02fe46535714296ebc00338eae7f, type: 3}
+  bossPowerjup: {fileID: 5620956176638554865, guid: 59c87cd9d9fd60f4989869aa0193c5f3,
+    type: 3}
 --- !u!114 &1117380152 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 642760580515029289, guid: 34466e3bee3947e41b31695fb49887a0,

@@ -14,64 +14,95 @@ public class AudioManager : MonoBehaviour
     public AudioSource youWinAudioSource;
     public AudioSource youLoseAudioSource;
     public AudioSource[] phases;
-    
-    
 
-    int currentPhase = 0;
+	public JointPowerup jointPowerup;
+	public BossPowerUp bossPowerjup;
+
+    int currentPhase = -1;
+	private float phaseVol = 1;
+
+	private int bossPlaying = 0;
+	private int jointPlaying = 0;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void ActivateNextPhase(int newPhase)
-    {
-        currentPhase = newPhase;
-		if (newPhase > 0) {
-			phases[newPhase - 1].DOFade(0, 1);
+    public void ActivateNextPhase(int newPhase) {
+		if (currentPhase >= 0) {
+			phases[currentPhase].DOFade(0, 1);
 		}
-        phases[newPhase].DOFade(1, 1).ChangeStartValue(0);
-        phases[newPhase].Play();
-    }
+	    currentPhase = newPhase;
 
+	    if (jointPlaying == 0 && bossPlaying == 0) {
+		    phases[newPhase].Play();
+		    phases[newPhase].DOFade(1, 1);
+	    } 
+    }
 
     public void PlayAudioOneShot(AudioClip clipToPlay)
     {
         mainAudioSource.PlayOneShot(clipToPlay);
-    }
-    
+    }    
 
     public void PlayJointMusic()
     {
         jointMusicSource.Play();
+	    jointMusicSource.volume = 1;
+	    jointPlaying++;
         phases[currentPhase].Pause();
-        StartCoroutine(ResumeMusic(3.75f));
+        StartCoroutine(ResumeMusicJoint(jointPowerup.activeTime));
     }
 
     public void PlayBossEnterance()
     {
         bossEnteranceAudioSource.Play();
-        phases[currentPhase].DOFade(0.3f, 0.4f);
-
-        phases[currentPhase].DOFade(1f, 0.3f).SetDelay(2);
+	    bossPlaying++;
+        phases[currentPhase].DOFade(0.25f, 0.4f);
+	    StartCoroutine(ResumeMusicBoss(bossPowerjup.activeTime));
     }
 
-    IEnumerator ResumeMusic(float delay)
+    IEnumerator ResumeMusicJoint(float delay)
     {
         yield return new WaitForSeconds(delay);
-        jointMusicSource.Stop();
-        phases[currentPhase].Play();
+
+	    jointPlaying--;
+
+	    if (jointPlaying == 0) {
+		    jointMusicSource.DOFade(0, 0.4f);
+	    }
+
+	    if (jointPlaying == 0 && bossPlaying == 0) {
+		    phases[currentPhase].Play();
+		    phases[currentPhase].DOFade(1, 0.4f);
+	    }
     }
 
-    public void PlayYouWin()
-    {
+	IEnumerator ResumeMusicBoss(float delay) {
+		yield return new WaitForSeconds(delay);
+
+		bossPlaying--;
+
+		if (jointPlaying == 0 && bossPlaying == 0) {
+			phases[currentPhase].Play();
+			phases[currentPhase].DOFade(1, 0.4f);
+		}
+	}
+
+
+    public void PlayYouWin() {
+	    bossEnteranceAudioSource.Stop();
+	    jointMusicSource.Stop();
+	    phases[currentPhase].Stop();
         youWinAudioSource.Play();
     }
 
     public void PlayYouLose()
     {
+	    bossEnteranceAudioSource.Stop();
+	    jointMusicSource.Stop();
+	    phases[currentPhase].Stop();
         youLoseAudioSource.Play();
     }
-
-
 }
