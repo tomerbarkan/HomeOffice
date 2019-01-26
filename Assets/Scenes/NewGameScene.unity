@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 389721663}
   - component: {fileID: 389721662}
   - component: {fileID: 389721661}
+  - component: {fileID: 389721664}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -377,12 +378,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389721660}
   m_LocalRotation: {x: 0.16881524, y: -0, z: -0, w: 0.98564774}
-  m_LocalPosition: {x: 0, y: 18.24, z: -38.91}
+  m_LocalPosition: {x: 0, y: 18, z: -38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 19.438002, y: 0, z: 0}
+--- !u!114 &389721664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389721660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42c9d07f463a6884ab5aed3d2bb949c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveAmount: 30
 --- !u!1 &402127137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2226,22 +2240,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.51
       objectReference: {fileID: 0}
-    - target: {fileID: 422120136517325320, guid: f1c38a869dba0644ea04e917c595ee79,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 65.213
-      objectReference: {fileID: 0}
-    - target: {fileID: 71090738824966418, guid: f1c38a869dba0644ea04e917c595ee79,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3e07db6beec959646903df277519f04c, type: 2}
     - target: {fileID: 71090738825880274, guid: f1c38a869dba0644ea04e917c595ee79,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3e07db6beec959646903df277519f04c, type: 2}
     - target: {fileID: 71090738824966416, guid: f1c38a869dba0644ea04e917c595ee79,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e07db6beec959646903df277519f04c, type: 2}
+    - target: {fileID: 422120136517325320, guid: f1c38a869dba0644ea04e917c595ee79,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 65.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 71090738824966418, guid: f1c38a869dba0644ea04e917c595ee79,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

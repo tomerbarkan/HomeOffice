@@ -65,6 +65,10 @@ public class Character : MonoBehaviour, IHitable {
 	}
 
 	public void Start() {
+		if (!GameManager.useAi) {
+			additionalCooldown = 0; // No additional cooldown in multiplayer mode
+		}
+
 		anger = 0;
 		cooldownRemaining = 0;
 		if (ConfigManager.instance != null) {
