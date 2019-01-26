@@ -35,6 +35,7 @@ public class Character : MonoBehaviour, IHitable {
     [SerializeField] protected float angeyDecayPerSecond;
 	[SerializeField] protected int maxAnger;
 
+    public AudioSource[] hitsSources;
     [SerializeField] protected AudioSource fireScreamAudioSource;
   
     [SerializeField] protected float additionalCooldown;
@@ -95,6 +96,8 @@ public class Character : MonoBehaviour, IHitable {
         SetAnger(anger + throwable.damage);
         throwable.OnHitCharacter(this);
         animator.SetTrigger("Hit");
+
+        hitsSources[Random.Range(0, hitsSources.Length)].Play();
 		Destroy(throwable.gameObject);
     }
 
