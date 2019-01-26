@@ -41,6 +41,7 @@ public class Character : MonoBehaviour, IHitable {
 	protected Throwable currentThrowable;
 	protected float anger;
 	protected float startCooldown;
+	protected float overrideCooldown = -1;
 
 	protected List<Powerup> powerUps;
 
@@ -107,7 +108,7 @@ public class Character : MonoBehaviour, IHitable {
         spawnedThrowable.transform.position = throwableSpawnPoint.position;
 		spawnedThrowable.transform.forward = force;
         spawnedThrowable.Throw(force, this);
-		startCooldown = ConfigManager.instance.cooldown + additionalCooldown;
+		startCooldown = overrideCooldown < 0 ? ConfigManager.instance.cooldown : overrideCooldown + additionalCooldown;
 		cooldownRemaining = startCooldown;
 
       
@@ -143,7 +144,13 @@ public class Character : MonoBehaviour, IHitable {
         chairAnimator.SetTrigger("Smoke Weed");
     }
 
+	public void SetOverrideCooldown(float cooldown) {
+		this.overrideCooldown = cooldown;
+	}
 
+	public void CancelOverrideCooldown() {
+		overrideCooldown = -1;
+	}
 
 
 	protected void UpdatePowerupIcons() {
