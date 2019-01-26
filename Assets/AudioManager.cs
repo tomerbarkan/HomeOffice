@@ -35,10 +35,20 @@ public class AudioManager : MonoBehaviour
 		}
 	    currentPhase = newPhase;
 
-	    if (jointPlaying == 0 && bossPlaying == 0) {
-		    phases[newPhase].Play();
-		    phases[newPhase].DOFade(1, 1);
-	    } 
+		// play new phase
+	    phases[newPhase].Play();
+	    if (jointPlaying == 0) { 
+		    if (bossPlaying == 0) {
+				// If no joint and boss playing, fade to normal volume
+			    phases[newPhase].DOFade(1, 1);
+		    } else {
+				// If boss playing, fade to boss lower volume
+			    phases[newPhase].DOFade(0.25f, 1f);
+		    }
+		} else {
+			// if joint playing, volume should stay 0
+		    phases[newPhase].volume = 0;
+	    }
     }
 
     public void PlayAudioOneShot(AudioClip clipToPlay)
@@ -49,10 +59,11 @@ public class AudioManager : MonoBehaviour
     public void PlayJointMusic()
     {
         jointMusicSource.Play();
-	    jointMusicSource.volume = 1;
+	    jointMusicSource.DOFade(1, 0.4f);
+	    phases[currentPhase].DOFade(0, 0.4f);
 	    jointPlaying++;
-        phases[currentPhase].Pause();
-        StartCoroutine(ResumeMusicJoint(jointPowerup.activeTime));
+
+        StartCoroutine(ResumeMusic(jointPowerup.activeTime, () => jointPlaying--));
     }
 
     public void PlayBossEnterance()
@@ -60,8 +71,34 @@ public class AudioManager : MonoBehaviour
         bossEnteranceAudioSource.Play();
 	    bossPlaying++;
         phases[currentPhase].DOFade(0.25f, 0.4f);
-	    StartCoroutine(ResumeMusicBoss(bossPowerjup.activeTime));
+
+	    StartCoroutine(ResumeMusic(bossPowerjup.activeTime, () => bossPlaying--));
     }
+
+	IEnumerator ResumeMusic(float delay, System.Action onDone) {
+		yield return new WaitForSeconds(delay);
+
+		// decrease boss or joint playing as necessary
+		onDone();
+
+		if (jointPlaying == 0) {
+			// no more joint, so fade it out
+			jointMusicSource.DOFade(0, 0.4f);
+
+			// if boss still playing, fade music in only to 0.25
+			if (bossPlaying != 0) {
+				phases[currentPhase].DOFade(0.25f, 0.4f);
+			}
+		}
+
+		if (bossPlaying == 0) {
+			// if none playing, fade music back to 1
+			// if joint is playing, then music should remain 0, and when joint is done it will take care of it
+			if (jointPlaying == 0) {
+				phases[currentPhase].DOFade(1, 0.4f);			
+			}
+		}
+	}
 
     IEnumerator ResumeMusicJoint(float delay)
     {
