@@ -15,7 +15,7 @@ MonoBehaviour:
   pickupSources:
   - {fileID: 1699513762236650599}
   - {fileID: 1228706618924214301}
-  powerup: {fileID: 0}
+  powerup: {fileID: 5620956176638554865, guid: 59c87cd9d9fd60f4989869aa0193c5f3, type: 3}
 --- !u!1001 &4622500457587164233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29,15 +29,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1889219110, guid: 71b2999637bdb39438f19aab9e18eb63, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.02
+      value: -4.791265
       objectReference: {fileID: 0}
     - target: {fileID: 1889219110, guid: 71b2999637bdb39438f19aab9e18eb63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.97
+      value: 7.39
       objectReference: {fileID: 0}
     - target: {fileID: 1889219110, guid: 71b2999637bdb39438f19aab9e18eb63, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.6689525
       objectReference: {fileID: 0}
     - target: {fileID: 1889219110, guid: 71b2999637bdb39438f19aab9e18eb63, type: 3}
       propertyPath: m_LocalRotation.x

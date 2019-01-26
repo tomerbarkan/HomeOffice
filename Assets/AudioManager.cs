@@ -49,6 +49,9 @@ public class AudioManager : MonoBehaviour
     public void PlayBossEnterance()
     {
         bossEnteranceAudioSource.Play();
+        phases[currentPhase].DOFade(0.3f, 0.4f);
+
+        phases[currentPhase].DOFade(1f, 0.3f).SetDelay(2);
     }
 
     IEnumerator ResumeMusic(float delay)
