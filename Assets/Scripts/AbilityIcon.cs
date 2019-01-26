@@ -24,7 +24,7 @@ public class AbilityIcon : MonoBehaviour
 
 		button.onClick.RemoveAllListeners();
 		if (action != null) {
-			Debug.Log("Setting action");
+			//Debug.Log("Setting action");
 			button.onClick.AddListener(action);
 		}
     }

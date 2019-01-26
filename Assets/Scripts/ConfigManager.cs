@@ -15,6 +15,7 @@ public class ConfigManager : MonoBehaviour
 	public float maxSwipeRange = 300f;
 	public float minSwipeRange = 15f;
 	public float throwableLiveTime = 5f;
+	public float buttonMaxForceTime = 0.5f;
 
 	public static ConfigManager instance;
 }

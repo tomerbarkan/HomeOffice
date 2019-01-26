@@ -919,8 +919,37 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3647169622847785327, guid: 34466e3bee3947e41b31695fb49887a0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950999842757575628, guid: 34466e3bee3947e41b31695fb49887a0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770982439274037659, guid: 34466e3bee3947e41b31695fb49887a0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193861243, guid: 34466e3bee3947e41b31695fb49887a0, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 630185321, guid: 34466e3bee3947e41b31695fb49887a0, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34466e3bee3947e41b31695fb49887a0, type: 3}
+--- !u!224 &1030139326 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3770982439550414472, guid: 34466e3bee3947e41b31695fb49887a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1016740608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1048343856
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,11 +1005,14 @@ MonoBehaviour:
   - {fileID: 5142489360965837173, guid: 8f7e454bc34eb994fab5aaa03e1331d1, type: 3}
   - {fileID: 7941030362117840912, guid: 312c9c7a4355dc94ead2cd703b9e51cc, type: 3}
   useAi: 0
+  clockHandle: {fileID: 1030139326}
   audioManager: {fileID: 54477563}
   nextConfigs:
   - {fileID: 2443517964875955781, guid: 44c5f6da857f3e6459e18c5c19836adc, type: 3}
   - {fileID: 779665951855210093, guid: 92b8653d49a13534c98ff7cee0f5efa5, type: 3}
   - {fileID: 4568384748467527712, guid: 5aa7e05da680c7c4b96d23c70c66810e, type: 3}
+  dragIndicator: {fileID: 1175606825}
+  dragIndicator2: {fileID: 1331839481}
 --- !u!114 &1048343859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,9 +1041,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b730f3d6d7d85a94db3270ee0eb539fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1175606825 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1193861243, guid: 34466e3bee3947e41b31695fb49887a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1016740608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1252674282 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6278124602273541430, guid: 34466e3bee3947e41b31695fb49887a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1016740608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1331839481 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 630185321, guid: 34466e3bee3947e41b31695fb49887a0,
     type: 3}
   m_PrefabInstance: {fileID: 1016740608}
   m_PrefabAsset: {fileID: 0}

@@ -25,7 +25,8 @@ public class EnemyAIHandler
     {
         if (enemyCharacter.cooldownRemaining <= 0.2f)
         {
-            enemyCharacter.animator.SetTrigger("Throw");
+            if (enemyCharacter.canShoot)
+                enemyCharacter.animator.SetTrigger("Throw");
             if (enemyCharacter.cooldownRemaining <= 0)
             {
                 bool willHit = (Random.value <= ConfigManager.instance.enemyHitChance);
@@ -33,21 +34,21 @@ public class EnemyAIHandler
                 float timeModifier = 0;
                 if (!willHit)
                 {
-                    Debug.Log("Will not hit!");
-                    positionModifier = Random.value <= 0.5f ? Vector3.right * Random.Range(5f, 10f) : Vector3.right * Random.Range(-5f, -10f);
+                    //Debug.Log("Will not hit!");
+                    positionModifier = Random.value <= 0.5f ? Vector3.right * Random.Range(2.5f, 5f) : Vector3.right * Random.Range(-2.5f, -5f);
                     timeModifier = Random.Range(-0.5f, 1f);
                 }
                 enemyCharacter.Throw(calculateBestThrowSpeed(enemyCharacter.throwableSpawnPoint.position,
                     playerCharacter.aimToPoint.position + positionModifier, 2 + timeModifier));
             }
+        }
 
-            timeUntilNextBoost -= Time.deltaTime;
-            if (timeUntilNextBoost <= 0)
-            {
-                PowerupCollectible powerup = powerupOptions[Random.Range(0, powerupOptions.Length)];
-                powerup.powerup.ActivatePowerup(enemyCharacter);
-                timeUntilNextBoost = GetTimeUntilNextBoost();
-            }
+        timeUntilNextBoost -= Time.deltaTime;
+        if(timeUntilNextBoost <= 0)
+        {
+            PowerupCollectible powerup = powerupOptions[Random.Range(0, powerupOptions.Length)];
+            powerup.powerup.ActivatePowerup(enemyCharacter);
+            timeUntilNextBoost = GetTimeUntilNextBoost();
         }
     }
 
