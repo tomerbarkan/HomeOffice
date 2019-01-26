@@ -11,6 +11,9 @@ public class MainMenuScript : MonoBehaviour
 	public GameObject loadingText;
 	public GameObject buttonsObj;
 
+	public GameObject singleInstructions;
+	public GameObject mpInstructions;
+
 	public Button newGameButton;
 	public Button mpButton;
 	public Button creditsButton;
@@ -28,18 +31,13 @@ public class MainMenuScript : MonoBehaviour
 		});
 
 		mpButton.onClick.AddListener(() => {
-			loadingText.SetActive(true);
-			buttonsObj.SetActive(false);
 			GameManager.useAi = false;
-			SceneManager.LoadScene("Testing Scene");
+			StartCoroutine(NewGameCoroutine(mpInstructions));
 		});
 
-
 		newGameButton.onClick.AddListener(() => {
-			loadingText.SetActive(true);
-			buttonsObj.SetActive(false);
 			GameManager.useAi = true;
-			SceneManager.LoadScene("Testing Scene");
+			StartCoroutine(NewGameCoroutine(singleInstructions));
 		});
 
 		creditsButton.onClick.AddListener(() => {
@@ -52,5 +50,19 @@ public class MainMenuScript : MonoBehaviour
 			shouldQuit = true;
 			SceneManager.LoadScene("CreditsScene");
 		}
+	}
+
+	private IEnumerator NewGameCoroutine(GameObject instructions) {
+		buttonsObj.SetActive(false);
+		instructions.SetActive(true);
+		yield return null;
+		while (!Input.anyKeyDown) {
+			yield return null;
+		}
+
+		instructions.SetActive(false);
+		loadingText.SetActive(true);
+
+		SceneManager.LoadScene("Testing Scene");
 	}
 }

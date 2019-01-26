@@ -145,7 +145,7 @@ public class Character : MonoBehaviour, IHitable {
 	public void SetThrowable(Throwable throwable) {
 		this.currentThrowable = throwable ?? defaultthrowable;
 		if (weaponIcon != null) {
-			weaponIcon.sprite = throwable.sprite;
+			weaponIcon.sprite = currentThrowable.sprite;
 		}
 	}
 
