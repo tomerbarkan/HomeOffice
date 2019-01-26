@@ -118,6 +118,10 @@ public class Character : MonoBehaviour, IHitable {
 	}
 
 	public void SetSingleCooldown(float cooldown) {
+		if (cooldownRemaining > cooldown) {
+			return;
+		}
+
 		cooldownRemaining = cooldown;
 		startCooldown = cooldown;
 	}

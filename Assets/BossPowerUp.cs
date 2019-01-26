@@ -9,22 +9,21 @@ public class BossPowerUp : Powerup
 
     public override void ActivatePowerup(Character activator)
     {
-        activator.StartCoroutine(DelayCoroutine(activator, activeTime));
+		GameManager.instance.player.SetSingleCooldown(activeTime);
+		GameManager.instance.enemy.SetSingleCooldown(activeTime);
+        //activator.StartCoroutine(DelayCoroutine(activator, activeTime));
     }
 
-    private IEnumerator DelayCoroutine(Character activator, float delay)
-    {
-        GameObject spawnedBoss = GameObject.Instantiate(bossPrefab, activator.bossSpawnPoint.position, activator.bossSpawnPoint.rotation);
+    //private IEnumerator DelayCoroutine(Character activator, float delay)
+    //{
+    //    GameObject spawnedBoss = GameObject.Instantiate(bossPrefab, activator.bossSpawnPoint.position, activator.bossSpawnPoint.rotation);
 
+    //    while (delay > 0)
+    //    {
+    //        delay -= Time.deltaTime;
+    //        yield return null;
+    //    }
 
-        while (delay > 0)
-        {
-
-
-            delay -= Time.deltaTime;
-            yield return null;
-        }
-
-        Destroy(spawnedBoss);
-    }
+    //    Destroy(spawnedBoss);
+    //}
 }
