@@ -310,7 +310,7 @@ MonoBehaviour:
   bossSpawnPoint: {fileID: 3397228923569039909}
   aimToPoint: {fileID: 8675752605317281206}
   firedText: {fileID: 0}
-  joint: {fileID: 0}
+  joint: {fileID: 7981147347961554437}
   animator: {fileID: 71090738820714450}
   chairAnimator: {fileID: 899500823847238163}
   fan: {fileID: 855906843800365572}
