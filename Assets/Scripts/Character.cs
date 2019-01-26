@@ -108,7 +108,7 @@ public class Character : MonoBehaviour, IHitable {
         spawnedThrowable.transform.position = throwableSpawnPoint.position;
 		spawnedThrowable.transform.forward = force;
         spawnedThrowable.Throw(force, this);
-		startCooldown = overrideCooldown < 0 ? ConfigManager.instance.cooldown : overrideCooldown + additionalCooldown;
+		startCooldown = (overrideCooldown < 0 ? ConfigManager.instance.cooldown : overrideCooldown) + additionalCooldown;
 		cooldownRemaining = startCooldown;
 
       
@@ -172,6 +172,7 @@ public class Character : MonoBehaviour, IHitable {
 
 	protected void SetAnger(float anger) {
 		this.anger = Mathf.Clamp(anger, 0, maxAnger);
+		Debug.Log("Setting Anger Meter for " + name + ": " + (float)anger / maxAnger);
 		if (angerMeter != null) {
 			angerMeter.Set((float)anger / maxAnger);
 		}
