@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
 		restartButton.onClick.AddListener(() => {
 			Time.timeScale = 1;
-			SceneManager.LoadScene("Testing Scene");
+			SceneManager.LoadScene("NewGameScene");
 		});
     }
 
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
-			Application.Quit();
+			SceneManager.LoadScene("NewGameScene");
 		}
 
 		playerInput.HandleInput();
