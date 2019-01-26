@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7148841460654806486}
-  - component: {fileID: 7409879454170188817}
+  - component: {fileID: 8812941554969497142}
   m_Layer: 0
   m_Name: FanPowerUp
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7409879454170188817
+--- !u!114 &8812941554969497142
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,9 +40,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1131893343}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a3862f1bf4d344caea9228886aad9c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5780b9f8276a085439e4e5de98c4a9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   iconSprite: {fileID: 21300000, guid: 1beb85dbc29c9034a8b8a5b037f27266, type: 3}
   audioClip: {fileID: 8300000, guid: 1ac0e7d1557135a48bed71d0fa09c758, type: 3}
-  activeTime: 5
+  activeTime: 4

@@ -161,7 +161,7 @@ public class Character : MonoBehaviour, IHitable {
 	protected void UpdatePowerupIcons() {
 		for (int i = 0; i < powerupButtons.Length; i++) {
 			int index = i;
-			powerupButtons[i].Set(i < powerUps.Count ? powerUps[i]?.Sprite : null, () => ActivatePowerup(index));
+			powerupButtons[i].Set(i < powerUps.Count ? powerUps[i]?.Sprite : null, i < powerUps.Count ? powerUps[i]?.audioClip : null,() => ActivatePowerup(index));
 		}
 	}
 

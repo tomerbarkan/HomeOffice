@@ -13,7 +13,7 @@ public class AbilityIcon : MonoBehaviour
     [SerializeField]
     UnityAction actionToInvoke;
 
-   public void Set(Sprite sprite, UnityAction action)
+   public void Set(Sprite sprite, AudioClip clip, UnityAction action)
     {
         this.button.image.sprite = sprite;
 
@@ -28,5 +28,7 @@ public class AbilityIcon : MonoBehaviour
 			//Debug.Log("Setting action");
 			button.onClick.AddListener(action);
 		}
+
+        audioSource.clip = clip;
     }
 }
