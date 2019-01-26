@@ -8,10 +8,17 @@ public class PlayerInputHandler {
 	protected Vector3 playerPosition;
 	protected Camera camera;
 
-	public PlayerInputHandler(Character player, Vector3 playerPosition, Camera camera) {
+	protected string controllerX;
+	protected string controllerY;
+	protected string controllerFire;
+
+	public PlayerInputHandler(Character player, Vector3 playerPosition, Camera camera, string[] controllerInputs) {
 		this.player = player;
 		this.playerPosition = playerPosition;
 		this.camera = camera;
+		this.controllerX = controllerInputs[0];
+		this.controllerY = controllerInputs[1];
+		this.controllerFire = controllerInputs[2];
 	}
 
 	public void HandleInput() {
@@ -21,6 +28,10 @@ public class PlayerInputHandler {
 
 		if (Input.GetMouseButtonDown(0)) {
 			GameManager.instance.StartCoroutine(HandleSwipe());
+		}
+
+		if (Input.GetButtonDown(controllerFire)) {
+			GameManager.instance.StartCoroutine(HandleFire());
 		}
 	}
 
@@ -41,4 +52,21 @@ public class PlayerInputHandler {
 		float force = Mathf.InverseLerp(0, ConfigManager.instance.maxSwipeRange, toMouse.magnitude);
 		player.Throw(toMouse.normalized * (force * ConfigManager.instance.maxThrowSpeed));
 	}
+
+	public IEnumerator HandleFire() {
+		float force = 0;
+		float forcePerSec = 1f;
+
+		while (!Input.GetButtonUp(controllerFire)) {
+			force += Time.deltaTime * forcePerSec;
+			yield return null;
+		}
+
+		float x = Input.GetAxisRaw(controllerX);
+		float y = Input.GetAxisRaw(controllerY);
+		Vector2 direction = new Vector2(x, y).normalized;
+
+		player.Throw(direction * (force * ConfigManager.instance.maxThrowSpeed));
+	}
+
 }

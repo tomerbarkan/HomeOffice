@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
 	public new Camera camera;
 	public Transform boostSpawns;
 	public PowerupCollectible[] powerupOptions;
+	public bool useAi = true;
 
 	public PlayerInputHandler playerInput;
+	public PlayerInputHandler playerInput2;
     public EnemyAIHandler enemyAI;
 	public BoostSpawner boostSpawner;
 
@@ -32,8 +34,12 @@ public class GameManager : MonoBehaviour
 
 	// Start is called before the first frame update
 	private void Start() {
-		playerInput = new PlayerInputHandler(player, player.transform.position, camera);
-        enemyAI = new EnemyAIHandler(enemy,player,enemy.transform.position, powerupOptions);
+		playerInput = new PlayerInputHandler(player, player.transform.position, camera, new string[] { "Horizontal1", "Vertical1", "Fire1"});
+		if (useAi) {
+			enemyAI = new EnemyAIHandler(enemy, player, enemy.transform.position, powerupOptions);
+		} else {
+			playerInput2 = new PlayerInputHandler(enemy, enemy.transform.position, camera, new string[] { "Horizontal2", "Vertical2", "Fire2"});
+		}
 		boostSpawner = new BoostSpawner(boostSpawns, powerupOptions);
     }
 
@@ -41,7 +47,12 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
 		playerInput.HandleInput();
-        enemyAI.Think();
+
+		if (useAi) {
+			enemyAI.Think();
+		} else {
+			playerInput2.HandleInput();
+		}
 		boostSpawner.Simulate();
 		AdvanceStages();
     }
