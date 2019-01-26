@@ -12,6 +12,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage3Config
       objectReference: {fileID: 0}
+    - target: {fileID: 2443517964875955781, guid: 44c5f6da857f3e6459e18c5c19836adc,
+        type: 3}
+      propertyPath: cooldown
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443517964875955781, guid: 44c5f6da857f3e6459e18c5c19836adc,
+        type: 3}
+      propertyPath: stageTime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3527274255641068957, guid: 44c5f6da857f3e6459e18c5c19836adc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,16 +76,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2443517964875955781, guid: 44c5f6da857f3e6459e18c5c19836adc,
-        type: 3}
-      propertyPath: cooldown
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2443517964875955781, guid: 44c5f6da857f3e6459e18c5c19836adc,
-        type: 3}
-      propertyPath: stageTime
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c5f6da857f3e6459e18c5c19836adc, type: 3}

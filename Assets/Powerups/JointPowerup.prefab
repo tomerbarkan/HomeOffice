@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconSprite: {fileID: 21300000, guid: f0912989e3d0e2444afed91d89550428, type: 3}
+  audioClip: {fileID: 0}
   activeTime: 4
-  healAmount: 15
+  healAmount: 40

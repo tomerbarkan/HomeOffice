@@ -78,7 +78,7 @@ public class PlayerInputHandler {
 
 		dragIndicator.gameObject.SetActive(false);
 		float force = Mathf.InverseLerp(0, ConfigManager.instance.maxSwipeRange, mag);
-		player.Throw(toMouse.normalized * (force * ConfigManager.instance.maxThrowSpeed));
+		player.Throw(toMouse.normalized * (ConfigManager.instance.minThrowSpeed + force * (ConfigManager.instance.maxThrowSpeed - ConfigManager.instance.minThrowSpeed)));
 	}
 
 	public IEnumerator HandleFire() {
@@ -111,7 +111,7 @@ public class PlayerInputHandler {
 
 		dragIndicator.gameObject.SetActive(false);
 		float force = Mathf.InverseLerp(0, ConfigManager.instance.maxSwipeRange, mag);
-		player.Throw(toMouse * (force * ConfigManager.instance.maxThrowSpeed));
+		player.Throw(toMouse * (ConfigManager.instance.minThrowSpeed + force * (ConfigManager.instance.maxThrowSpeed - ConfigManager.instance.minThrowSpeed)));
 	}
 
 }

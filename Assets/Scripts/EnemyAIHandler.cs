@@ -35,7 +35,7 @@ public class EnemyAIHandler
                 if (!willHit)
                 {
                     //Debug.Log("Will not hit!");
-                    positionModifier = Random.value <= 0.5f ? Vector3.right * Random.Range(2.5f, 5f) : Vector3.right * Random.Range(-2.5f, -5f);
+                    positionModifier = Random.value <= 0.5f ? Vector3.right * Random.Range(5f, 10f) : Vector3.right * Random.Range(-5f, -10f);
                     timeModifier = Random.Range(-0.5f, 1f);
                 }
                 enemyCharacter.Throw(calculateBestThrowSpeed(enemyCharacter.throwableSpawnPoint.position,

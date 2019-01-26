@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ConfigManager : MonoBehaviour
 {
+	public float minThrowSpeed = 3f;
 	public float maxThrowSpeed = 10f;
 	public float boostRateMin = 5f;
 	public float boostRateMax = 14f;

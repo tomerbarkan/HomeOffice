@@ -43,11 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8043cd97a58924caf26ac3eb1a1305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxThrowSpeed: 25
+  minThrowSpeed: 9
+  maxThrowSpeed: 20
   boostRateMin: 5
   boostRateMax: 9
-  enemyHitChance: 0.6
-  enemyBoostMin: 5
-  enemyBoostMax: 12
-  cooldown: 1
+  enemyHitChance: 0.35
+  enemyBoostMin: 7
+  enemyBoostMax: 14
+  cooldown: 0.8
   stageTime: 40
+  maxSwipeRange: 250
+  minSwipeRange: 15
+  throwableLiveTime: 5
+  buttonMaxForceTime: 0.5
