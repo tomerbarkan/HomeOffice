@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 	public new Camera camera;
 	public Transform boostSpawns;
 	public PowerupCollectible[] powerupOptions;
-	public bool useAi = true;
+	public static bool useAi = true;
 
 	public PlayerInputHandler playerInput;
 	public PlayerInputHandler playerInput2;
