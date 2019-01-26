@@ -11,9 +11,15 @@ public class Character : MonoBehaviour, IHitable {
     public Transform bossSpawnPoint;
     public Transform aimToPoint;
 
+    public Animator animator;
+    public Animator chairAnimator;
+
     public float cooldownRemaining;
 
     public bool canHeal = true;
+    public bool canGetHit = true;
+    public bool canShoot = true;
+
     [SerializeField] protected ParticleSystem fireParticles;
    
     [SerializeField] protected Throwable defaultthrowable;
@@ -25,7 +31,7 @@ public class Character : MonoBehaviour, IHitable {
 	[SerializeField] protected int maxAnger;
 
     [SerializeField] protected AudioSource fireScreamAudioSource;
-    [SerializeField] protected Animator animator;
+  
     [SerializeField] protected float additionalCooldown;
 
 
@@ -77,8 +83,12 @@ public class Character : MonoBehaviour, IHitable {
 
 
 	public void Hit(Throwable throwable) {
-		SetAnger(anger + throwable.damage);
+        if (!canGetHit)
+            return;
+
+        SetAnger(anger + throwable.damage);
         throwable.OnHitCharacter(this);
+        animator.SetTrigger("Hit");
 		Destroy(throwable.gameObject);
     }
 
@@ -89,7 +99,7 @@ public class Character : MonoBehaviour, IHitable {
 	}
 
     public void Throw(Vector2 force) {
-		if (cooldownRemaining > 0) {
+		if (cooldownRemaining > 0 || !canShoot) {
 			return;
 		}
 
@@ -100,7 +110,7 @@ public class Character : MonoBehaviour, IHitable {
 		startCooldown = ConfigManager.instance.cooldown + additionalCooldown;
 		cooldownRemaining = startCooldown;
 
-        animator.SetTrigger("Throw");
+      
     }
 
 	public void AddPowerup(Powerup powerup) {
@@ -121,6 +131,13 @@ public class Character : MonoBehaviour, IHitable {
 		cooldownRemaining = cooldown;
 		startCooldown = cooldown;
 	}
+
+    [ContextMenu("Try smoke weed animation")]
+    public void StartSmokeWeedAnimation()
+    {
+        animator.SetTrigger("Smoke Weed");
+        chairAnimator.SetTrigger("Smoke Weed");
+    }
 
 
 
@@ -155,11 +172,16 @@ public class Character : MonoBehaviour, IHitable {
 
     public void SetOnFire(float time)
     {
+        if (!canGetHit)
+            return;
+
         fireParticles.Play();
         timeOnFireRemaining = time;
         canHeal = false;
         onFire = true;
         fireScreamAudioSource.Play();
+
+        animator.SetTrigger("Get Burn");
     }
 
    

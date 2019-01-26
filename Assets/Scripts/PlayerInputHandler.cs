@@ -38,6 +38,8 @@ public class PlayerInputHandler {
 	public IEnumerator HandleSwipe() {
 		Vector2 mouseStart = Input.mousePosition;
 
+        if(player.cooldownRemaining <= 0 && player.canShoot)
+          player.animator.SetTrigger("Throw");
 		while (!Input.GetMouseButtonUp(0)) {
 			yield return null;
 		}
@@ -57,7 +59,9 @@ public class PlayerInputHandler {
 		float force = 0;
 		float forcePerSec = 1f;
 
-		while (!Input.GetButtonUp(controllerFire)) {
+        if(player.cooldownRemaining <= 0 && player.canShoot)
+            player.animator.SetTrigger("Throw");
+        while (!Input.GetButtonUp(controllerFire)) {
 			force += Time.deltaTime * forcePerSec;
 			yield return null;
 		}

@@ -15,7 +15,12 @@ public class JointPowerup : Powerup
 	private IEnumerator DelayCoroutine(Character activator, float delay) {
 		activator.SetSingleCooldown(delay);
 
-		float accumulatedHeal = 0;
+        activator.canGetHit = false;
+        activator.canShoot = false;
+
+        activator.StartSmokeWeedAnimation();
+
+        float accumulatedHeal = 0;
 		while (delay > 0) {
 			accumulatedHeal += Time.deltaTime / delay * this.healAmount;
 			if (accumulatedHeal > 1) {
@@ -25,5 +30,8 @@ public class JointPowerup : Powerup
 			delay -= Time.deltaTime;
 			yield return null;
 		}
-	}
+
+        activator.canGetHit = true;
+        activator.canShoot = true;
+    }
 }
