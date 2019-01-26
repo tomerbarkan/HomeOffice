@@ -8,3 +8,11 @@ This game is about two employees at an office getting so fed up with each other 
 They start by throwing paper balls, but slowly collect powerups, joints that help them relax and reduce their anger, staplers they can throw at each other to make them angried, fireballs that will burn the other employee to the ground, and calling the boss for a short ceasefire.
 
 This game can be played single player on mobile, with mouse, or with a gamepad. Local multiplayer is available when you have two gamepads connected.
+
+The game was developed during the 2019 Global Game Jam, in Rishon Leziyon jam site. Team:
+
+* Lior Hadashian: Programming
+* Tomer Barkan: Programming
+* Yoni Wisner: Art
+* Shay Shemtov: Art
+* Roi Angress: Audio
