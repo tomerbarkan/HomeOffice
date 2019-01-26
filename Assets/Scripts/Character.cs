@@ -11,6 +11,7 @@ public class Character : MonoBehaviour, IHitable {
     public Transform bossSpawnPoint;
     public Transform aimToPoint;
 	public Transform firedText;
+    public GameObject joint;
 
     public Animator animator;
     public Animator chairAnimator;
@@ -35,6 +36,7 @@ public class Character : MonoBehaviour, IHitable {
     [SerializeField] protected float angeyDecayPerSecond;
 	[SerializeField] protected int maxAnger;
 
+    public AudioSource[] hitsSources;
     [SerializeField] protected AudioSource fireScreamAudioSource;
   
     [SerializeField] protected float additionalCooldown;
@@ -95,6 +97,8 @@ public class Character : MonoBehaviour, IHitable {
         SetAnger(anger + throwable.damage);
         throwable.OnHitCharacter(this);
         animator.SetTrigger("Hit");
+
+        hitsSources[Random.Range(0, hitsSources.Length)].Play();
 		Destroy(throwable.gameObject);
     }
 
@@ -147,6 +151,7 @@ public class Character : MonoBehaviour, IHitable {
     {
         animator.SetTrigger("Smoke Weed");
         chairAnimator.SetTrigger("Smoke Weed");
+        joint.SetActive(true);
     }
 
 	public void SetOverrideCooldown(float cooldown) {
@@ -202,4 +207,8 @@ public class Character : MonoBehaviour, IHitable {
     }
 
    
+    void DeactivateJoint()
+    {
+        joint.SetActive(false);
+    }
 }
