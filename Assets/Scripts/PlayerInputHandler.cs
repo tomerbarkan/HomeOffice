@@ -12,17 +12,29 @@ public class PlayerInputHandler {
 	protected string controllerY;
 	protected string controllerFire;
 
-	public PlayerInputHandler(Character player, Vector3 playerPosition, Camera camera, string[] controllerInputs) {
+	protected RectTransform dragIndicator;
+
+	float widthMultiplier;
+
+
+	public PlayerInputHandler(Character player, Vector3 playerPosition, Camera camera, RectTransform dragIndicator, string[] controllerInputs) {
 		this.player = player;
 		this.playerPosition = playerPosition;
 		this.camera = camera;
+		this.dragIndicator = dragIndicator;
 		this.controllerX = controllerInputs[0];
 		this.controllerY = controllerInputs[1];
 		this.controllerFire = controllerInputs[2];
+
+		widthMultiplier = 1920f / Screen.width;
 	}
 
 	public void HandleInput() {
 		if (EventSystem.current.IsPointerOverGameObject()) {
+			return;
+		}
+
+		if (player.cooldownRemaining >= 0) {
 			return;
 		}
 
@@ -37,36 +49,64 @@ public class PlayerInputHandler {
 
 	public IEnumerator HandleSwipe() {
 		Vector2 mouseStart = Input.mousePosition;
+		Vector2 mouseEnd;
+		Vector2 toMouse = Vector2.zero;
+		float mag = 0;
 
 		while (!Input.GetMouseButtonUp(0)) {
 			yield return null;
+
+			mouseEnd = Input.mousePosition;
+			toMouse = mouseEnd - mouseStart;
+			mag = Mathf.Clamp(toMouse.magnitude, 0, ConfigManager.instance.maxSwipeRange);
+
+			if (mag >= ConfigManager.instance.minSwipeRange) {
+				dragIndicator.gameObject.SetActive(true);
+				dragIndicator.right = toMouse;
+				dragIndicator.sizeDelta = new Vector2(mag * widthMultiplier, dragIndicator.sizeDelta.y);
+				dragIndicator.position = mouseStart;
+			} else {
+				dragIndicator.gameObject.SetActive(false);
+			}
 		}
 
-		Vector2 mouseEnd = Input.mousePosition;
-		Vector2 toMouse = mouseEnd - mouseStart;
-		float mag = toMouse.magnitude;
 		if (mag < ConfigManager.instance.minSwipeRange) {
 			yield break;
 		}
 
-		float force = Mathf.InverseLerp(0, ConfigManager.instance.maxSwipeRange, toMouse.magnitude);
+		dragIndicator.gameObject.SetActive(false);
+		float force = Mathf.InverseLerp(0, ConfigManager.instance.maxSwipeRange, mag);
 		player.Throw(toMouse.normalized * (force * ConfigManager.instance.maxThrowSpeed));
 	}
 
 	public IEnumerator HandleFire() {
-		float force = 0;
-		float forcePerSec = 1f;
+		float mag = 0;
+		float magPerSec = ConfigManager.instance.maxSwipeRange / ConfigManager.instance.buttonMaxForceTime;
+		Vector2 toMouse = Vector2.zero;
 
 		while (!Input.GetButtonUp(controllerFire)) {
-			force += Time.deltaTime * forcePerSec;
 			yield return null;
+
+			float x = Input.GetAxisRaw(controllerX);
+			float y = Input.GetAxisRaw(controllerY);
+
+			mag += Time.deltaTime * magPerSec;
+			toMouse = new Vector2(x, y).normalized;
+
+			if (mag >= ConfigManager.instance.minSwipeRange) {
+				dragIndicator.gameObject.SetActive(true);
+				dragIndicator.right = toMouse;
+				dragIndicator.sizeDelta = new Vector2(mag * widthMultiplier, dragIndicator.sizeDelta.y);
+				dragIndicator.position = Camera.main.WorldToScreenPoint(player.throwableSpawnPoint.position);
+			} else {
+				dragIndicator.gameObject.SetActive(false);
+			}
 		}
 
-		float x = Input.GetAxisRaw(controllerX);
-		float y = Input.GetAxisRaw(controllerY);
-		Vector2 direction = new Vector2(x, y).normalized;
 
-		player.Throw(direction * (force * ConfigManager.instance.maxThrowSpeed));
+		dragIndicator.gameObject.SetActive(false);
+		float force = Mathf.InverseLerp(0, ConfigManager.instance.maxSwipeRange, mag);
+		player.Throw(toMouse * (force * ConfigManager.instance.maxThrowSpeed));
 	}
 
 }

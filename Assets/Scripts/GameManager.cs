@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
 
 	public ConfigManager[] nextConfigs;
 
+	public RectTransform dragIndicator;
+	public RectTransform dragIndicator2;
+
     
 	protected int nextConfig = 0;
 	protected float totalTime;
@@ -37,11 +40,11 @@ public class GameManager : MonoBehaviour
 
 	// Start is called before the first frame update
 	private void Start() {
-		playerInput = new PlayerInputHandler(player, player.transform.position, camera, new string[] { "Horizontal1", "Vertical1", "Fire1"});
+		playerInput = new PlayerInputHandler(player, player.transform.position, camera, dragIndicator, new string[] { "Horizontal1", "Vertical1", "Fire1"});
 		if (useAi) {
 			enemyAI = new EnemyAIHandler(enemy, player, enemy.transform.position, powerupOptions);
 		} else {
-			playerInput2 = new PlayerInputHandler(enemy, enemy.transform.position, camera, new string[] { "Horizontal2", "Vertical2", "Fire2"});
+			playerInput2 = new PlayerInputHandler(enemy, enemy.transform.position, camera, dragIndicator2, new string[] { "Horizontal2", "Vertical2", "Fire2"});
 		}
 		boostSpawner = new BoostSpawner(boostSpawns, powerupOptions);
     }

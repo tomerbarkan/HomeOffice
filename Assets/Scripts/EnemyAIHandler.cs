@@ -30,7 +30,7 @@ public class EnemyAIHandler
             float timeModifier = 0;
             if (!willHit)
             {
-                Debug.Log("Will not hit!");
+                //Debug.Log("Will not hit!");
                 positionModifier = Random.value <= 0.5f ? Vector3.right * Random.Range(2.5f, 5f) : Vector3.right * Random.Range(-2.5f, -5f);
                 timeModifier = Random.Range(-0.5f, 1f);
             }
