@@ -9,10 +9,8 @@ They start by throwing paper balls, but slowly collect powerups, joints that hel
 
 This game can be played single player on mobile, with mouse, or with a gamepad. Local multiplayer is available when you have two gamepads connected.
 
-The game was developed during the 2019 Global Game Jam, in Rishon Leziyon jam site. Team:
+The game was developed during the 2019 Global Game Jam, in Rishon Leziyon jam site. 
 
-* Lior Hadashian: Programming
-* Tomer Barkan: Programming
-* Yoni Wisner: Art
-* Shay Shemtov: Art
-* Roi Angress: Audio
+# Team:
+
+![Team Image](https://github.com/tomerbarkan/HomeOffice/blob/master/Team-smaller.jpg)
